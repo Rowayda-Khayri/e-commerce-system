@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer('review');
             $table->dateTime('sent_at');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
