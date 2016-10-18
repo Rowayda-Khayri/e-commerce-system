@@ -12,7 +12,7 @@ class CreateOrderItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('order__items', function (Blueprint $table) {
+        Schema::create('order_items', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -25,6 +25,6 @@ class CreateOrderItemsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('order__items');
+        Schema::drop('order_items');
     }
 }
