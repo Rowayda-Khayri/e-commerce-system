@@ -264,7 +264,12 @@ class ComposerStaticInitbd9a385a9b82e103c539fce0d8317c0d
     );
 
     public static $classMap = array (
+        'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_18_105606_create_categories_table.php',
+        'CreateItemsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_18_105517_create_items_table.php',
+        'CreateOrderItemsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_18_105530_create_order__items_table.php',
+        'CreateOrdersTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_18_105324_create_orders_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+        'CreateSubcategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_18_105557_create_subcategories_table.php',
         'CreateUserTypesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_18_105121_create_user_types_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
