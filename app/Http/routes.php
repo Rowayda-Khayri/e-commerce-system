@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('user', 'UserController');
+Route::resource('order', 'OrderController');
+Route::resource('item', 'ItemController');
+Route::resource('subcategory', 'SubcategoryController');
+Route::resource('category', 'CategoryController');
