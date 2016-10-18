@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddFkToUsersTable' => $baseDir . '/database/migrations/2016_10_18_131325_add_fk_to_users_table.php',
+    'AddNewFkToUsersTable' => $baseDir . '/database/migrations/2016_10_18_133619_add_new_fk_to_users_table.php',
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2016_10_18_105606_create_categories_table.php',
     'CreateItemsTable' => $baseDir . '/database/migrations/2016_10_18_105517_create_items_table.php',
     'CreateOrderItemsTable' => $baseDir . '/database/migrations/2016_10_18_110500_create_order_items_table.php',

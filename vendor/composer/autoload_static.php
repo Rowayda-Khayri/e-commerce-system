@@ -264,6 +264,8 @@ class ComposerStaticInitbd9a385a9b82e103c539fce0d8317c0d
     );
 
     public static $classMap = array (
+        'AddFkToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_18_131325_add_fk_to_users_table.php',
+        'AddNewFkToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_18_133619_add_new_fk_to_users_table.php',
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_18_105606_create_categories_table.php',
         'CreateItemsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_18_105517_create_items_table.php',
         'CreateOrderItemsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_18_110500_create_order_items_table.php',

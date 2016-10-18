@@ -17,7 +17,7 @@ class CreateItemsTable extends Migration
             $table->string('name');
             $table->integer('price');
             $table->timestamps();
-//            $table->foreign('subcategory_id')->references('id')->on('subcategories');
+            $table->foreign('subcategory_id')->references('id')->on('subcategories');
         });
     }
 

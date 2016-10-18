@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             
             $table->rememberToken();
             $table->timestamps();
-//            $table->foreign('user_type_id')->references('id')->on('user_types');
+            $table->foreign('user_type_id')->references('id')->on('user_types');
         });
     }
 
