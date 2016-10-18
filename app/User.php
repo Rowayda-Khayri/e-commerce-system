@@ -32,5 +32,11 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
     
+    // relations :
+    
+    public function userTypes(){
+        
+        return $this->belongsTo(User_type::class);
+    }
     
 }
