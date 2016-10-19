@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//use Illuminate\Database\Eloquent\SoftDeletes;
 
 use App\Http\Requests;
+
+use App\Category;
+use App\Subcategory;
 
 use DB;
 use DateTime;
 
-use App\Category;
+
+
 
 class CategoryController extends Controller
 {
@@ -32,13 +35,7 @@ class CategoryController extends Controller
     public function create(Request $request)
     {
         
-//        $category = new Category;
-//
-//        $category ->name = 'my newwwww cat';
-//
-//        $category->save();
-////       
-//        
+  
         return view('category.add');
     }
 
@@ -53,6 +50,8 @@ class CategoryController extends Controller
         
         
         $category = new Category;
+        
+        
 
         $category->name = $request->categoryName;
 
@@ -73,10 +72,23 @@ class CategoryController extends Controller
 //        $categories= DB::table('categories')->get();
         
         $categories= Category::all();
-//        $categories= Category::where('deleted_at','NULL')->first();
+//        foreach ($categories as $category){
+            $subcategories= Subcategory::all();
+//            return $category->id;
+//            return $subcategories;
+//        }
         
-        return view('category.show', compact('categories'));
+
+//        return $subcategories;
+        return view('category.show', compact('categories','subcategories'));
+//        redirect()->action('CategoryController@listSubcategories')]
+//        ('/category/listSubcategories');
+         
     }
+    
+//    public function listSubcategories(){
+//        return 'hello subcat';
+//    }
 
     /**
      * Show the form for editing the specified resource.
@@ -136,12 +148,8 @@ class CategoryController extends Controller
         $category->save();
         $category->delete();
         
-        
-
-    
-  
-        
-        $categories= Category::all();
-        return view('category.show', compact('categories'));
+        return back();
+//        $categories= Category::all();
+//        return view('category.show', compact('categories'));
     }
 }

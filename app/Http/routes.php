@@ -27,6 +27,10 @@ Route::get('/category/destroy/{id}','CategoryController@destroy');
 
 Route::get('/category/add','CategoryController@create');
 Route::post('/category/store','CategoryController@store');
+Route::post('/category/add','CategoryController@create');
 
 Route::get('/category/edit/{id}','CategoryController@edit');
 Route::post('/category/update/{id}','CategoryController@update');
+
+Route::get('/category/listSubcategories','CategoryController@listSubcategories');
+Route::post('/category/listSubcategories','CategoryController@listSubcategories');
