@@ -29,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('categoryAdd');
+        return view('category.add');
     }
 
     /**
@@ -54,7 +54,7 @@ class CategoryController extends Controller
 //        $categories= DB::table('categories')->get();
         
         $categories= Category::all();
-        return view('category/show', compact('categories'));
+        return view('category.show', compact('categories'));
     }
 
     /**
@@ -65,7 +65,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        return view('categoryEdit');
+//        return view('category/edit');
+        $category= Category::find($id);
+        return view('category.edit', compact('category'));
+    
     }
 
     /**

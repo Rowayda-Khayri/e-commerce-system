@@ -23,4 +23,6 @@ Route::get('category', 'CategoryController@show');
 
 
 Route::get('/category/add','CategoryController@create');
-Route::get('/category/edit','CategoryController@edit');
+Route::get('/category/edit/{id}','CategoryController@edit');
+
+
