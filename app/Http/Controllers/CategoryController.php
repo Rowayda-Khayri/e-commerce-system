@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use DB;
+use DateTime;
 
 use App\Category;
 
@@ -108,6 +109,7 @@ class CategoryController extends Controller
         $category= Category::find($id);
         
         $category->name = $request->categoryName;
+        $category->updated_at = new DateTime;
 
         $category->save();
         
@@ -126,7 +128,10 @@ class CategoryController extends Controller
     {
         $category= Category::find($id);
         
-        $category->delete();
+        $category->deleted_at = new DateTime;
+
+        $category->save();
+//        $category->delete();
         
         $categories= Category::all();
         return view('category.show', compact('categories'));
