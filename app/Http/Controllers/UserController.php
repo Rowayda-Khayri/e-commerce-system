@@ -15,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        echo 'Welcome in UserController :)';
+//        echo 'Welcome in UserController :)';
+        return view('welcome');
     }
 
     /**

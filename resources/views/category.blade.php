@@ -83,8 +83,7 @@
     <div class="container">
         <div class="row">
             <div  class="col-lg-12" style="margin-top: 100px;">
-                <h1>Logo Nav by Start Bootstrap</h1>
-                <p>Note: You may need to adjust some CSS based on the size of your logo. The default logo size is 150x50 pixels.</p>
+                <h1>Categories</h1>
             </div>
         </div>
     </div>

@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categoryAdd');
     }
 
     /**
@@ -58,7 +58,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('categoryEdit');
     }
 
     /**
