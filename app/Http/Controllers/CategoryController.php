@@ -50,13 +50,13 @@ class CategoryController extends Controller
     {
         
         
-//        $category = new Category;
-//
-//        $category->name = $request->name;
-//
-//        $category->save();
-//        
-        return "hello";
+        $category = new Category;
+
+        $category->name = $request->categoryName;
+
+        $category->save();
+        
+        return view('category.add');
     }
 
     /**

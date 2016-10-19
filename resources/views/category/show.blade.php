@@ -17,7 +17,7 @@
                 </td>
                 <td>
                     <input  type="submit" name="delete" value="Delete" class="btn btn-primary" />
-
+                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                 </td>
             </tr>
         </table>
