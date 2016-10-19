@@ -19,8 +19,8 @@ Route::get('/category/add','CategoryController@create');
 
 
 
-Route::resource('user', 'UserController');
-Route::resource('order', 'OrderController');
-Route::resource('item', 'ItemController');
-Route::resource('subcategory', 'SubcategoryController');
-Route::resource('category', 'CategoryController');
+Route::get('user', 'UserController@index');
+Route::get('order', 'OrderController@index');
+Route::get('item', 'ItemController@index');
+Route::get('subcategory', 'SubcategoryController@index');
+Route::get('category', 'CategoryController@index');
