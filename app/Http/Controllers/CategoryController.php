@@ -48,7 +48,7 @@ class CategoryController extends Controller
     public function show()
     {
         $categories=['cat1','cat2'];
-        return view('category', ['categories'=>$categories]);
+        return view('category/show', compact('categories'));
     }
 
     /**
