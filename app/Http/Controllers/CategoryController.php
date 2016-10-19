@@ -69,26 +69,14 @@ class CategoryController extends Controller
      */
     public function show()
     {
-//        $categories= DB::table('categories')->get();
+
         
         $categories= Category::all();
-//        foreach ($categories as $category){
-            $subcategories= Subcategory::all();
-//            return $category->id;
-//            return $subcategories;
-//        }
-        
 
-//        return $subcategories;
-        return view('category.show', compact('categories','subcategories'));
-//        redirect()->action('CategoryController@listSubcategories')]
-//        ('/category/listSubcategories');
-         
+        return view('category.show', compact('categories'));
+
     }
-    
-//    public function listSubcategories(){
-//        return 'hello subcat';
-//    }
+ 
 
     /**
      * Show the form for editing the specified resource.
@@ -101,13 +89,7 @@ class CategoryController extends Controller
         
         $category= Category::find($id);
         
-//        $category->name = $req
-//
-//        $category->save();
-        
-        
-        
-        
+
         return view('category.edit', compact('category'));
     
     }
@@ -125,11 +107,32 @@ class CategoryController extends Controller
         
         $category->name = $request->categoryName;
         $category->updated_at = new DateTime;
-
         $category->save();
         
-        $categories= Category::all();
-        return view('category.show', compact('categories'));
+//        $requestLength = count($request->all());
+//        
+//        for($i=3;$i<$requestLength;$i++){
+//            $subcategory= Subcategory::find($request[$i]);
+//            $subcategory->name = $request[$i]->categoryName;
+//        }
+        
+        
+//        $subcategoriesList = Input::get('subcategoryName');
+        
+//        foreach($subcategoriesList as $subcategoryName => $n ) {
+//            $subcategoryName= Subcategory::find($id);
+//        
+////        $subcategory->name = $n;
+////        $subcategory->updated_at = new DateTime;
+////        $subcategory->save();
+//        }
+//        return $subcategoriesList;
+//        $categories= Category::all();
+//        return view('category.show', compact('categories'));
+        return [$request->all(),
+            $request->input('subcategoryName.1')];
+//        return $request[3][0];
+//        return count($request->all());
 
     }
 //
