@@ -9,7 +9,7 @@
 
 <ul>
     <li>
-        {{$category}}
+        {{$category->name }}
     </li>
 </ul>
 

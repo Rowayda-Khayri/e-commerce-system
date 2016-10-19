@@ -47,7 +47,7 @@ class CategoryController extends Controller
      */
     public function show()
     {
-        $categories=['cat1','cat2'];
+        $categories= \DB::table('categories')->get();
         return view('category/show', compact('categories'));
     }
 
