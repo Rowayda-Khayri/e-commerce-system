@@ -27,15 +27,15 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         
 //        $category = new Category;
 //
-//        $category ->name = 'cat';
+//        $category ->name = 'my newwwww cat';
 //
 //        $category->save();
-//       
+////       
 //        
         return view('category.add');
     }
@@ -56,7 +56,7 @@ class CategoryController extends Controller
 //
 //        $category->save();
 //        
-        return view('category.add');
+        return "hello";
     }
 
     /**

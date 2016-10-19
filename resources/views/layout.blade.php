@@ -86,9 +86,9 @@
     <div class="container">
         <div class="row">
             <div  class="col-lg-12" style="margin-top: 100px;">
-                <form>
-                    @yield('pageContent')
-                </form>
+                
+                @yield('pageContent')
+                
                
                 
                 
