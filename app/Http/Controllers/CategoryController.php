@@ -84,10 +84,10 @@ class CategoryController extends Controller
         
         $category= Category::find($id);
         
-//        $category->name = 'new cat';
+//        $category->name = $req
 //
 //        $category->save();
-//        
+        
         
         
         
@@ -104,9 +104,18 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $category= Category::find($id);
+        
+        $category->name = $request->categoryName;
 
+        $category->save();
+        
+        $categories= Category::all();
+        return view('category.show', compact('categories'));
+//        return view('category.add');
+//        return 'hi' ;
+    }
+//
     /**
      * Remove the specified resource from storage.
      *
