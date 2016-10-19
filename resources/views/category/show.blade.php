@@ -7,7 +7,7 @@
 
 @foreach($categories as $category)
 
-<ul>
+<ul >
     
         <table class="table ">
             <tr>
