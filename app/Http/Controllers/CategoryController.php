@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use DB;
 
+use App\Category;
+
 class CategoryController extends Controller
 {
     /**
@@ -49,7 +51,9 @@ class CategoryController extends Controller
      */
     public function show()
     {
-        $categories= DB::table('categories')->get();
+//        $categories= DB::table('categories')->get();
+        
+        $categories= Category::all();
         return view('category/show', compact('categories'));
     }
 
