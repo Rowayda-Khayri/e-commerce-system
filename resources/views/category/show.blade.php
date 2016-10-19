@@ -4,16 +4,15 @@
 @section('pageContent')
 
 <h1> Categories </h1>
-
+<form method="POST" action="">
+    
 @foreach($categories as $category)
 
-<ul >
-    
         <table class="table ">
             <tr>
-                <td class="col-sm-6"><li style="font-size: 20px;margin-right: 100px;">{{$category->name }} </li></td>
+                <td style="font-size: 20px;margin-right: 100px;" class="col-sm-6">{{$category->name }} </td>
                 <td> 
-                    <input  type="submit" name="edit" value="Edit" class="btn btn-primary"/>
+                    <input  type="submit" name="edit{{$category->id}}" value="Edit" class="btn btn-primary"/>
                 </td>
                 <td>
                     <input  type="submit" name="delete" value="Delete" class="btn btn-primary" />
@@ -21,9 +20,8 @@
                 </td>
             </tr>
         </table>
-            
     
-</ul>
+</form>
 
 
 @endforeach
