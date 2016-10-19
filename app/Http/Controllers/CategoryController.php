@@ -56,7 +56,8 @@ class CategoryController extends Controller
 
         $category->save();
         
-        return view('category.add');
+        $categories= Category::all();
+        return view('category.show', compact('categories'));
     }
 
     /**
@@ -112,8 +113,7 @@ class CategoryController extends Controller
         
         $categories= Category::all();
         return view('category.show', compact('categories'));
-//        return view('category.add');
-//        return 'hi' ;
+
     }
 //
     /**
@@ -124,6 +124,11 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category= Category::find($id);
+        
+        $category->delete();
+        
+        $categories= Category::all();
+        return view('category.show', compact('categories'));
     }
 }
