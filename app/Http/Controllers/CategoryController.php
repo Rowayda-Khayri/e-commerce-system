@@ -29,6 +29,14 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        
+//        $category = new Category;
+//
+//        $category ->name = 'cat';
+//
+//        $category->save();
+//       
+//        
         return view('category.add');
     }
 
@@ -40,7 +48,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        
+//        $category = new Category;
+//
+//        $category->name = $request->name;
+//
+//        $category->save();
+//        
+        return view('category.add');
     }
 
     /**
@@ -65,8 +81,16 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-//        return view('category/edit');
+        
         $category= Category::find($id);
+        
+//        $category->name = 'new cat';
+//
+//        $category->save();
+//        
+        
+        
+        
         return view('category.edit', compact('category'));
     
     }

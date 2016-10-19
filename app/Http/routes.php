@@ -21,8 +21,8 @@ Route::get('item', 'ItemController@index');
 Route::get('subcategory', 'SubcategoryController@index');
 Route::get('category', 'CategoryController@show');
 
-
 Route::get('/category/add','CategoryController@create');
+//Route::get('/category/add','CategoryController@store');
 Route::get('/category/edit/{id}','CategoryController@edit');
 
 
