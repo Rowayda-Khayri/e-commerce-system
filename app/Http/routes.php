@@ -19,13 +19,12 @@ Route::get('user', 'UserController@index');
 Route::get('order', 'OrderController@index');
 Route::get('item', 'ItemController@index');
 Route::get('subcategory', 'SubcategoryController@index');
+
 Route::get('category', 'CategoryController@show');
+Route::post('/category','CategoryController@show');
 
 Route::get('/category/add','CategoryController@create');
 Route::post('/category/store','CategoryController@store');
 
-Route::post('/category','CategoryController@show');
 Route::get('/category/edit/{id}','CategoryController@edit');
-//Route::post('/category/edit/{id}','CategoryController@update');
-
 Route::post('/category/update/{id}','CategoryController@update');
