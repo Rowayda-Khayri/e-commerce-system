@@ -15,12 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/category/add','CategoryController@create');
-
-
-
 Route::get('user', 'UserController@index');
 Route::get('order', 'OrderController@index');
 Route::get('item', 'ItemController@index');
 Route::get('subcategory', 'SubcategoryController@index');
-Route::get('category', 'CategoryController@index');
+Route::get('category', 'CategoryController@show');
+
+
+Route::get('/category/add','CategoryController@create');
+Route::get('/category/edit','CategoryController@edit');

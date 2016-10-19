@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('category');
+        
     }
 
     /**
@@ -45,9 +45,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $categories=['cat1','cat2'];
+        return view('category',  compact('categories'));
     }
 
     /**

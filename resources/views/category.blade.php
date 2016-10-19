@@ -84,6 +84,16 @@
         <div class="row">
             <div  class="col-lg-12" style="margin-top: 100px;">
                 <h1>Categories</h1>
+                
+                @foreach($categories as $category)  
+                
+                <ul> <li>
+                     {{$category}}
+                    </li>
+                </ul>
+                 
+                @endforeach
+                
             </div>
         </div>
     </div>
