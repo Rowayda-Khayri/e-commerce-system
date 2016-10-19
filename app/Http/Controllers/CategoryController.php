@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        echo 'Welcome in CategoryController :)';
+        return view('category');
     }
 
     /**

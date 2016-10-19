@@ -15,7 +15,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        echo 'Welcome in ItemController :)';
+//        echo 'Welcome in ItemController :)';
     }
 
     /**
@@ -26,7 +26,7 @@ class ItemController extends Controller
     public function create()
     {
         
-    return view('welcome');
+//    return view('welcome');
 
     }
 
