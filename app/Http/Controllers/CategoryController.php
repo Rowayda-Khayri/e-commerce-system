@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+//use Illuminate\Database\Eloquent\SoftDeletes;
 
 use App\Http\Requests;
 
@@ -72,6 +73,8 @@ class CategoryController extends Controller
 //        $categories= DB::table('categories')->get();
         
         $categories= Category::all();
+//        $categories= Category::where('deleted_at','NULL')->first();
+        
         return view('category.show', compact('categories'));
     }
 
@@ -128,10 +131,15 @@ class CategoryController extends Controller
     {
         $category= Category::find($id);
         
-        $category->deleted_at = new DateTime;
-
+        $category->deleted_at = new DateTime();
+        
         $category->save();
-//        $category->delete();
+        $category->delete();
+        
+        
+
+    
+  
         
         $categories= Category::all();
         return view('category.show', compact('categories'));
