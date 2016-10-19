@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use DB;
+
 class CategoryController extends Controller
 {
     /**
@@ -47,7 +49,7 @@ class CategoryController extends Controller
      */
     public function show()
     {
-        $categories= \DB::table('categories')->get();
+        $categories= DB::table('categories')->get();
         return view('category/show', compact('categories'));
     }
 
