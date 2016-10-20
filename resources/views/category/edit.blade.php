@@ -17,6 +17,9 @@
     </br></br></br></br>
     <div>
         <label>Subcategories :</label>
+        
+        <a href="/subcategory/add">Add Subcategory</a>
+        
         @foreach($category->subcategories as $subcategory)
         </br></br>
         <input  type="text"  name="subcategoryName[]" value="{{$subcategory->name}}">

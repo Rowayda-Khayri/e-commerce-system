@@ -51,8 +51,6 @@ class CategoryController extends Controller
         
         $category = new Category;
         
-        
-
         $category->name = $request->categoryName;
 
         $category->save();

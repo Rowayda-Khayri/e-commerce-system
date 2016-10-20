@@ -8,6 +8,7 @@ use App\Http\Requests;
 
 use App\Subcategory;
 
+use DB;
 use DateTime;
 
 
@@ -30,7 +31,7 @@ class SubcategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('subcategory.add');
     }
 
     /**
@@ -41,7 +42,18 @@ class SubcategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        
+        $subcategory = new Subcategory;
+        
+        $subcategory->name = $request->subcategoryName;
+        $subcategory->category_id = $request->subcategoryName;
+        
+
+        $subcategory->save();
+        
+//        $subcategories= Subcategory::all();
+//        return view('category.show', compact('subcategories'));
+        return $request->all();
     }
 
     /**
