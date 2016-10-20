@@ -34,3 +34,9 @@ Route::post('/category/update/{id}','CategoryController@update');
 
 Route::get('/category/listSubcategories','CategoryController@listSubcategories');
 Route::post('/category/listSubcategories','CategoryController@listSubcategories');
+
+
+Route::get('/subcategory/destroy/{id}','SubcategoryController@destroy');
+Route::post('/subcategory/destroy/{id}','SubcategoryController@destroy');
+
+

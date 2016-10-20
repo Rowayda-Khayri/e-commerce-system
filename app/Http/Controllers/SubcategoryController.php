@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Subcategory;
+
+use DateTime;
+
+
 class SubcategoryController extends Controller
 {
     /**
@@ -81,6 +86,13 @@ class SubcategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $subcategory= Subcategory::find($id);
+        
+        $subcategory->deleted_at = new DateTime();
+        
+        $subcategory->save();
+        $subcategory->delete();
+        
+        return back();
     }
 }

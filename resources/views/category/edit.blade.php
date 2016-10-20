@@ -18,7 +18,10 @@
     <div>
         <label>Subcategories :</label>
         @foreach($category->subcategories as $subcategory)
+        </br></br>
         <input  type="text"  name="subcategoryName[]" value="{{$subcategory->name}}">
+        
+        <a href="/subcategory/destroy/{{$subcategory->id}}">Delete</a>
         
         @endforeach
         
