@@ -18,7 +18,13 @@
     <div>
         <label>Subcategories :</label>
         @foreach($category->subcategories as $subcategory)
-        <input  type="text" name="subcategoryName[]" value="{{$subcategory->name}}">
+        <input  type="text"  name="subcategoryName[]" value="{{$subcategory->name}}">
+        
+        @endforeach
+        
+        @foreach($category->subcategories as $subcategory)
+        <input  type="hidden"  name="subcategoryId[]" value="{{$subcategory->id}}">
+        
         @endforeach
     </div>
     

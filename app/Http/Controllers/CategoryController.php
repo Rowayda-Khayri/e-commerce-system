@@ -59,6 +59,7 @@ class CategoryController extends Controller
         
         $categories= Category::all();
         return view('category.show', compact('categories'));
+//        return redirect('/category'); // it works but how without sending $categories to view??!!
     }
 
     /**
@@ -72,6 +73,9 @@ class CategoryController extends Controller
 
         
         $categories= Category::all();
+        
+//        $categories = Category::all()->sortByDesc("created_at");
+
 
         return view('category.show', compact('categories'));
 
@@ -109,12 +113,20 @@ class CategoryController extends Controller
         $category->updated_at = new DateTime;
         $category->save();
         
-//        $requestLength = count($request->all());
-//        
-//        for($i=3;$i<$requestLength;$i++){
-//            $subcategory= Subcategory::find($request[$i]);
-//            $subcategory->name = $request[$i]->categoryName;
-//        }
+        $subcategoriesNumber = count($request->input('subcategoryName'));
+        
+        for($i=0;$i<$subcategoriesNumber;$i++){
+            
+            $subcategoryId = $request->input("subcategoryId.$i");
+//            $subId = Input::get('subcategoryName.1.id');
+            $subcategory= Subcategory::find($subcategoryId);
+            $subcategory->name = $request->input("subcategoryName.$i");
+            $subcategory->updated_at = new DateTime;
+            $subcategory->save();
+            
+//            return $request->input("subcategoryId.$i");
+            
+        }
         
         
 //        $subcategoriesList = Input::get('subcategoryName');
@@ -127,12 +139,17 @@ class CategoryController extends Controller
 ////        $subcategory->save();
 //        }
 //        return $subcategoriesList;
-//        $categories= Category::all();
-//        return view('category.show', compact('categories'));
-        return [$request->all(),
-            $request->input('subcategoryName.1')];
+        $categories= Category::all();
+        return view('category.show', compact('categories'));
+//        return [$request->all(),
+//            $request->input('subcategoryName')];
+        
+//        return $request->input('subcategoryName.1');
+//        return $request->Input::get('subcategoryName.1.id');
 //        return $request[3][0];
-//        return count($request->all());
+//        return count($request->input('subcategoryName'));
+//        return $subcategoriesNumber;
+//        return [$request['subcategoryName'],$request['subcategoryId']];
 
     }
 //
