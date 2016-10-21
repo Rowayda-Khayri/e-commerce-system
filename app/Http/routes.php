@@ -17,8 +17,9 @@ Route::get('/', function () {
 
 Route::get('user', 'UserController@index');
 Route::get('order', 'OrderController@index');
-Route::get('item', 'ItemController@index');
-Route::get('subcategory', 'SubcategoryController@index');
+//Route::get('item', 'ItemController@index');
+Route::get('/item', 'ItemController@show');
+//Route::get('subcategory', 'SubcategoryController@index');
 
 Route::get('category', 'CategoryController@show');
 Route::post('/category','CategoryController@show');

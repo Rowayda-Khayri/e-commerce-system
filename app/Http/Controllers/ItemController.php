@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use DB;
+use DateTime;
 
 class ItemController extends Controller
 {
@@ -15,7 +17,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-//        echo 'Welcome in ItemController :)';
+        echo 'Welcome in ItemController :)';
     }
 
     /**
@@ -47,9 +49,12 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+//        $items= Item::all();
+        
+
+        return view('item.show');
     }
 
     /**
