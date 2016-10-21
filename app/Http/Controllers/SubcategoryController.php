@@ -125,6 +125,9 @@ class SubcategoryController extends Controller
         $subcategory->save();
         $subcategory->delete();
         
-        return back();
+//        return back();
+          $category = new Category;
+        $category= Category::find($subcategory->category_id);
+        return view('category.edit', compact('category'));
     }
 }
