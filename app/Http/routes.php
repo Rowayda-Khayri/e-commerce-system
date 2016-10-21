@@ -39,8 +39,8 @@ Route::post('/category/listSubcategories','CategoryController@listSubcategories'
 Route::get('/subcategory/destroy/{id}','SubcategoryController@destroy');
 Route::post('/subcategory/destroy/{id}','SubcategoryController@destroy');
 
-Route::get('/subcategory/add','SubcategoryController@create');
-Route::post('/subcategory/store','SubcategoryController@store');
-Route::post('/subcategory/add','SubcategoryController@create');
+Route::get('/subcategory/add/{id}','SubcategoryController@create');
+Route::post('/subcategory/store/{id}','SubcategoryController@store');
+Route::post('/subcategory/add/{id}','SubcategoryController@create');
 
 

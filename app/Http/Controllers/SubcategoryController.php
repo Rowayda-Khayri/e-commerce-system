@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Subcategory;
+use App\Category;
 
 use DB;
 use DateTime;
@@ -29,9 +30,13 @@ class SubcategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('subcategory.add');
+        $subcategory= new Subcategory;
+        $subcategory->category_id = $id;
+//        
+        return view('subcategory.add',compact('subcategory'));
+//        return 'hello sub add';
     }
 
     /**
@@ -40,20 +45,22 @@ class SubcategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
 //        
-        $subcategory = new Subcategory;
-        
+        $subcategory= new Subcategory;
+//        
         $subcategory->name = $request->subcategoryName;
-        $subcategory->category_id = $request->subcategoryName;
-        
-
+        $subcategory->category_id = $id;
+//        
+//
         $subcategory->save();
         
 //        $subcategories= Subcategory::all();
-//        return view('category.show', compact('subcategories'));
-        return $request->all();
+        $category = new Category;
+        $category= Category::find($id);
+        return view('category.edit',compact('category'));
+//        return $request->all();
     }
 
     /**

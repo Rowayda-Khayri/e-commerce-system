@@ -18,7 +18,7 @@
     <div>
         <label>Subcategories :</label>
         
-        <a href="/subcategory/add">Add Subcategory</a>
+        <a href="/subcategory/add/{{$category->id}}">Add Subcategory</a>
         
         @foreach($category->subcategories as $subcategory)
         </br></br>
