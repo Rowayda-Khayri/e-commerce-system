@@ -51,7 +51,7 @@
                         <a href="#">Subcategories</a>
                     </li>-->
                     <li>
-                        <a href="#">Items</a>
+                        <a href="/item">Items</a>
                     </li>
                     <li>
                         <a href="#">Orders</a>

@@ -135,8 +135,24 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request ,$id)
     {
-        //
+        $item= Item::find($id);
+        
+        $item->deleted_at = new DateTime();
+        
+        $item->save();
+        $item->delete();
+        
+
+        $items = Item::query()
+        ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
+        ->leftjoin('categories as c','c.id', '=', 's.category_id')
+        ->get([
+            'items.*', 
+            's.name as subcategory_name',
+            'c.name as category_name'            
+        ])->sortByDesc("created_at");
+        return view('item.show',  compact('items'));
     }
 }

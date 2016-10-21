@@ -19,6 +19,7 @@ Route::get('user', 'UserController@index');
 Route::get('order', 'OrderController@index');
 //Route::get('item', 'ItemController@index');
 Route::get('/item', 'ItemController@show');
+Route::post('/item', 'ItemController@show');
 //Route::get('subcategory', 'SubcategoryController@index');
 
 Route::get('category', 'CategoryController@show');
@@ -53,6 +54,9 @@ Route::post('/subcategory/update/{id}','SubcategoryController@update');
 Route::post('/item/add','ItemController@create');
 Route::post('/item/store','ItemController@store');
 Route::get('/item/add','ItemController@create');
+Route::post('/item/destroy/{id}','ItemController@destroy');
+Route::get('/item/destroy/{id}','ItemController@destroy');
+
 
 
 

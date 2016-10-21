@@ -24,7 +24,7 @@
             <tr>
                 <td>Item</td>
                 <td>Price</td>
-                <td>Created_at</td>
+                
                 <td>Subcategory</td>
                 <td>Category</td>
             </tr>
@@ -37,11 +37,13 @@
                
                 <td style="font-size: 20px;" >{{$item->price }} </td>
                
-                <td style="font-size: 20px;" >{{$item->created_at }} </td>
-               
                 <td style="font-size: 20px;" >{{$item->subcategory_name }} </td>
                 
                 <td style="font-size: 20px;" >{{$item->category_name }} </td>
+                
+                <td><a href="/item/edit/{{$item->id}}">Edit</a></td>
+                
+                <td><a href="/item/destroy/{{$item->id}}">Delete</a></td>
                 
             </tr>
             

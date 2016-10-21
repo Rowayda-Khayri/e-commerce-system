@@ -166,7 +166,7 @@ class CategoryController extends Controller
         $category->save();
         $category->delete();
         
-//        return back();
+
         $categories= Category::all();
         return view('category.show', compact('categories'));
     }
