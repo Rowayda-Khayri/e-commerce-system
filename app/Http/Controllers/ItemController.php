@@ -56,8 +56,8 @@ class ItemController extends Controller
     public function show()
     {
        $items = new Item;
-       $items = Item::all();
-//        $items = Item::all()->sortByDesc("created_at");
+//       $items = Item::all();
+        $items = Item::all()->sortByDesc("created_at");
         
 //        $subcategory= Subcategory::where('id','$item->subcategory_id');->first();
 //

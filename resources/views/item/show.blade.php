@@ -18,15 +18,27 @@
                 </td>
           
             </tr>
+            
+            <tr>
+                <td>Item</td>
+                <td>Price</td>
+                <td>Created_at</td>
+                <td>Subcategory</td>
+                <td>Category</td>
+            </tr>
            
             @foreach($items as $item)
             
         
             <tr>
-                <td style="font-size: 20px;margin-right: 100px;" class="col-sm-6">{{$item->name }} </td>
-                
-                
-                
+                <td style="font-size: 20px;" >{{$item->name }} </td>
+               
+                <td style="font-size: 20px;" >{{$item->price }} </td>
+               
+                <td style="font-size: 20px;" >{{$item->created_at }} </td>
+               
+                <td style="font-size: 20px;" >{{$item->subcategory_id }} </td>
+               
             </tr>
             
             
