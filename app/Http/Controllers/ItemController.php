@@ -65,7 +65,7 @@ class ItemController extends Controller
             'items.*', 
             's.name as subcategory_name',
             'c.name as category_name'            
-        ]);
+        ])->sortByDesc("created_at");
        
        
         
