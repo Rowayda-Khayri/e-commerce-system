@@ -8,7 +8,7 @@
 <form method="POST" action="">
     
     <table>
-        
+        @foreach($item as $it)
         <tr>
             <td>
                 <h1> Edit Item </h1>
@@ -26,7 +26,7 @@
             </td>
             
             <td>
-                <input  type="text" name="itemName" value="{{$item->name}}"/>
+                <input  type="text" name="itemName" value="{{$it->name}}"/>
             </td>
         </tr>
         
@@ -36,7 +36,7 @@
             </td>
             
             <td>
-                <input  type="text" name="itemPrice" value="{{$item->price}}"/>
+                <input  type="text" name="itemPrice" value="{{$it->price}}"/>
             </td>
         </tr>
          <tr>
@@ -46,7 +46,7 @@
             
             <td>
                <select name="itemSubcategory">
-                    <option  selected>{{$item->subcategory_id}}</option>
+                    <option  selected>{{$it->subcategory_name}}</option>
                     
                     @foreach($subcategories as $subcategory)
                     
@@ -55,6 +55,7 @@
                 </select>
             </td>
         </tr>
+        @endforeach
     </table>
     
     

@@ -114,19 +114,41 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        
-        
-        $item = new Item;
-//       $items = Item::all()->sortByDesc("created_at");
        
-       $item = Item::where("items.id", "=", "$id")->first();
+        $item = new Item;
+        $item = Item::query()
+        ->leftjoin('subcategories as s','subcategory_id', '=', 's.id')
+        ->where("items.id", "=", "$id")->get([
+            'items.*', 
+            's.name as subcategory_name'])
+               ;
         
+//       $item = Item::query()->leftjoin('subcategories',function($q){
+//           $q->on('subcategory_id', '=', 'subcategories.id');
+//           $q->where("items.id","=","$id");
+//       
+//       })
+//       ->get();
+        
+//          
+               
+               
+//       $bank = \SiteBanks::withTrashed()
+//            ->leftJoin('deposit_records', function($q) {
+//                $q->on('deposit_records.bank_id', '=', 'site_banks.id');
+//                $q->where('deposit_records.status', '=', 1, 'and');
+//            })
+//            ->select(array('site_banks.*', DB::raw('SUM(`deposit_records`.`deposit_amount`) AS `total_income`')))
+//            ->groupBy('site_banks.id')
+//            ->get();
+//            
+            
         $subcategories = new Subcategory;
         $subcategories = Subcategory::all();
        
        
         return view('item.edit', compact('item','subcategories'));
-//        return $items;
+//        return $item[0]->id;
     }
 
     /**
@@ -166,5 +188,6 @@ class ItemController extends Controller
             'c.name as category_name'            
         ])->sortByDesc("created_at");
         return view('item.show',  compact('items'));
+//        return $items[0]->id;
     }
 }
