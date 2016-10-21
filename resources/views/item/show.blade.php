@@ -37,7 +37,9 @@
                
                 <td style="font-size: 20px;" >{{$item->created_at }} </td>
                
-                <td style="font-size: 20px;" >{{$item->subcategory_id }} </td>
+                <td style="font-size: 20px;" >{{$item->subcategory_name }} </td>
+                
+                <td style="font-size: 20px;" >{{$item->category_name }} </td>
                
             </tr>
             

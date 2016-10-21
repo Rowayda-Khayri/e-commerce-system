@@ -56,8 +56,19 @@ class ItemController extends Controller
     public function show()
     {
        $items = new Item;
-//       $items = Item::all();
-        $items = Item::all()->sortByDesc("created_at");
+//       $items = Item::all()->sortByDesc("created_at");
+       
+       $items = Item::query()
+        ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
+        ->leftjoin('categories as c','c.id', '=', 's.category_id')
+        ->get([
+            'items.*', 
+            's.name as subcategory_name',
+            'c.name as category_name'            
+        ]);
+       
+       
+        
         
 //        $subcategory= Subcategory::where('id','$item->subcategory_id');->first();
 //
