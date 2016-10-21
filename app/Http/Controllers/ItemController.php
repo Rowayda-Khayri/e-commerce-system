@@ -122,33 +122,13 @@ class ItemController extends Controller
             'items.*', 
             's.name as subcategory_name'])
                ;
-        
-//       $item = Item::query()->leftjoin('subcategories',function($q){
-//           $q->on('subcategory_id', '=', 'subcategories.id');
-//           $q->where("items.id","=","$id");
-//       
-//       })
-//       ->get();
-        
-//          
-               
-               
-//       $bank = \SiteBanks::withTrashed()
-//            ->leftJoin('deposit_records', function($q) {
-//                $q->on('deposit_records.bank_id', '=', 'site_banks.id');
-//                $q->where('deposit_records.status', '=', 1, 'and');
-//            })
-//            ->select(array('site_banks.*', DB::raw('SUM(`deposit_records`.`deposit_amount`) AS `total_income`')))
-//            ->groupBy('site_banks.id')
-//            ->get();
-//            
-            
+        $myItem = $item[0];
         $subcategories = new Subcategory;
         $subcategories = Subcategory::all();
        
        
-        return view('item.edit', compact('item','subcategories'));
-//        return $item[0]->id;
+        return view('item.edit', compact('myItem','subcategories'));
+//        return $myItem;
     }
 
     /**
@@ -160,7 +140,30 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return "update";
+        
+        $item= Item::find($id);
+        
+        $sub = $request['itemSubcategory'];
+        $subcategory = Subcategory::where("name","$sub")->first();
+        
+             
+        $item->name = $request->itemName;
+        $item->price = $request->itemPrice;
+        $item->subcategory_id = $subcategory->id;
+        $item->updated_at = new DateTime;
+        $item->save();
+        
+        
+        $items = Item::query()
+        ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
+        ->leftjoin('categories as c','c.id', '=', 's.category_id')
+        ->get([
+            'items.*', 
+            's.name as subcategory_name',
+            'c.name as category_name'            
+        ])->sortByDesc("created_at");
+        return view('item.show',  compact('items'));
+        return ;
     }
 
     /**
