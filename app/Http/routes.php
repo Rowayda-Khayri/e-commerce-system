@@ -50,6 +50,10 @@ Route::post('/subcategory/edit/{id}','SubcategoryController@edit');
 Route::post('/subcategory/edit/{id}','SubcategoryController@edit');
 Route::post('/subcategory/update/{id}','SubcategoryController@update');
 
+Route::post('/item/add','ItemController@create');
+Route::get('/item/add','ItemController@create');
+
+
 
 
 

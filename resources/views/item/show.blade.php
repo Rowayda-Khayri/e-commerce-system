@@ -5,7 +5,7 @@
 @section('pageContent')
 
 <!--<h1> Categories </h1>-->
-<form method="POST" action="">
+<form method="POST" action="/item/add">
     
     
         <table class="table ">
@@ -15,6 +15,8 @@
                 </td>
                 <td>
                     <input  type="submit" name="add" value="Add New Item" class="btn btn-primary" />
+                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+             
                 </td>
           
             </tr>
@@ -40,10 +42,10 @@
                 <td style="font-size: 20px;" >{{$item->subcategory_name }} </td>
                 
                 <td style="font-size: 20px;" >{{$item->category_name }} </td>
-               
+                
             </tr>
             
-            
+             
             @endforeach
             
             
