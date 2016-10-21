@@ -163,7 +163,7 @@ class ItemController extends Controller
             'c.name as category_name'            
         ])->sortByDesc("created_at");
         return view('item.show',  compact('items'));
-        return ;
+        
     }
 
     /**
