@@ -16,22 +16,33 @@
     
     </br></br></br></br>
     <div>
-        <label>Subcategories :</label>
+        <label style="font-size:22px;">Subcategories :</label>
         
         <a href="/subcategory/add/{{$category->id}}">Add Subcategory</a>
-        
-        @foreach($category->subcategories as $subcategory)
         </br></br>
-        <input  type="text"  name="subcategoryName[]" value="{{$subcategory->name}}">
-        
-        <a href="/subcategory/destroy/{{$subcategory->id}}">Delete</a>
-        
-        @endforeach
-        
-        @foreach($category->subcategories as $subcategory)
-        <input  type="hidden"  name="subcategoryId[]" value="{{$subcategory->id}}">
-        
-        @endforeach
+        <table class="table">
+            
+            @foreach($category->subcategories as $subcategory)
+            
+            
+            <tr >
+            
+                <td   name="subcategoryName[]"  style="margin-right: 30px;font-size: 18px;">{{$subcategory->name}}</td>
+                <td><a href="/subcategory/edit/{{$subcategory->id}}" style="margin-right: 30px;margin-left: 30px;">Edit</a></td>
+                <td><a href="/subcategory/destroy/{{$subcategory->id}}">Delete</a></td>
+                     
+
+                    @endforeach
+
+                    @foreach($category->subcategories as $subcategory)
+                    <input  type="hidden"  name="subcategoryId[]" value="{{$subcategory->id}}">
+                
+                @endforeach
+            
+            </tr>
+            
+         
+        </table>
     </div>
     
     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />

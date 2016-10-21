@@ -32,8 +32,8 @@ Route::post('/category/add','CategoryController@create');
 Route::get('/category/edit/{id}','CategoryController@edit');
 Route::post('/category/update/{id}','CategoryController@update');
 
-Route::get('/category/listSubcategories','CategoryController@listSubcategories');
-Route::post('/category/listSubcategories','CategoryController@listSubcategories');
+//Route::get('/category/listSubcategories','CategoryController@listSubcategories');
+//Route::post('/category/listSubcategories','CategoryController@listSubcategories');
 
 
 Route::get('/subcategory/destroy/{id}','SubcategoryController@destroy');
@@ -42,5 +42,18 @@ Route::post('/subcategory/destroy/{id}','SubcategoryController@destroy');
 Route::get('/subcategory/add/{id}','SubcategoryController@create');
 Route::post('/subcategory/store/{id}','SubcategoryController@store');
 Route::post('/subcategory/add/{id}','SubcategoryController@create');
+
+
+Route::get('/subcategory/edit/{id}','SubcategoryController@edit');
+Route::post('/subcategory/edit/{id}','SubcategoryController@edit');
+Route::post('/subcategory/edit/{id}','SubcategoryController@edit');
+Route::post('/subcategory/update/{id}','SubcategoryController@update');
+
+
+
+
+///subcategory/update/
+
+
 
 

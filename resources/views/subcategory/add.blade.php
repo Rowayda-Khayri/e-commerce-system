@@ -11,7 +11,7 @@
     
     <label>Subcategory Name :</label>
     <input  type="text" name="subcategoryName" value="" required>
-    <input  type="text" name="categoryId" value="{{$subcategory->category_id}}" required>
+    <input  type="hidden" name="categoryId" value="{{$subcategory->category_id}}" >
     <input  type="submit" name="add" value="Add" class="btn btn-primary" />
     
     

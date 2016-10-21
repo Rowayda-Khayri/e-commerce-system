@@ -82,7 +82,10 @@ class SubcategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $subcategory= SubCategory::find($id);
+        
+
+        return view('subcategory.edit', compact('subcategory'));
     }
 
     /**
@@ -94,7 +97,16 @@ class SubcategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $subcategory= Subcategory::find($id);
+        
+        $subcategory->name = $request->subcategoryName;
+        $subcategory->updated_at = new DateTime;
+        $subcategory->save();
+        
+        $category = new Category;
+        $category= Category::find($subcategory->category_id);
+        return view('category.edit',compact('category'));
+        
     }
 
     /**

@@ -19,6 +19,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+        
 
 </head>
 
@@ -46,9 +47,9 @@
                     <li>
                         <a href="/category">Categories</a>
                     </li>
-                    <li>
+<!--                    <li>
                         <a href="#">Subcategories</a>
-                    </li>
+                    </li>-->
                     <li>
                         <a href="#">Items</a>
                     </li>
