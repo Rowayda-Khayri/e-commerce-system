@@ -35,7 +35,7 @@ class CategoryController extends Controller
     public function create(Request $request)
     {
         
-  
+        
         return view('category.add');
     }
 
@@ -55,8 +55,8 @@ class CategoryController extends Controller
 
         $category->save();
         
-        $categories= Category::all();
-        return view('category.show', compact('categories'));
+//        $categories= Category::all();
+        return view('category.edit', compact('category'));
 //        return redirect('/category'); // it works but how without sending $categories to view??!!
     }
 
