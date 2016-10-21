@@ -5,7 +5,7 @@
 
 
 
-<form method="POST" action="/item/update/{{$item->id}}">
+<form method="POST" action="">
     
     <table>
         
@@ -26,7 +26,7 @@
             </td>
             
             <td>
-                <input  type="text" name="itemName" value="{{$item->name}}">
+                <input  type="text" name="itemName" value="{{$item->name}}"/>
             </td>
         </tr>
         
@@ -36,7 +36,7 @@
             </td>
             
             <td>
-                <input  type="text" name="itemPrice" value="{{$item->price}}">
+                <input  type="text" name="itemPrice" value="{{$item->price}}"/>
             </td>
         </tr>
          <tr>
@@ -45,8 +45,8 @@
             </td>
             
             <td>
-                <select name="itemSubcategory">
-                    <option  selected>{{$item->subcategory}}</option>
+               <select name="itemSubcategory">
+                    <option  selected>{{$item->subcategory_id}}</option>
                     
                     @foreach($subcategories as $subcategory)
                     

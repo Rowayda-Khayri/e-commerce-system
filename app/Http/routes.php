@@ -57,6 +57,7 @@ Route::get('/item/add','ItemController@create');
 Route::post('/item/destroy/{id}','ItemController@destroy');
 Route::get('/item/destroy/{id}','ItemController@destroy');
 Route::get('/item/edit/{id}','ItemController@edit');
+Route::post('/item/update/{id}','ItemController@update');
 
 
 

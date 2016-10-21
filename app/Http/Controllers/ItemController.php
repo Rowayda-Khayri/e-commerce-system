@@ -114,10 +114,19 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        $item= Item::find($id);
         
-
-        return view('item.edit', compact('item'));
+        
+        $item = new Item;
+//       $items = Item::all()->sortByDesc("created_at");
+       
+       $item = Item::where("items.id", "=", "$id")->first();
+        
+        $subcategories = new Subcategory;
+        $subcategories = Subcategory::all();
+       
+       
+        return view('item.edit', compact('item','subcategories'));
+//        return $items;
     }
 
     /**
@@ -129,7 +138,7 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return "update";
     }
 
     /**
