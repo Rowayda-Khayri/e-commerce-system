@@ -60,6 +60,7 @@ class SubcategoryController extends Controller
         $category = new Category;
         $category= Category::find($id);
         return view('category.edit',compact('category'));
+        
 //        return $request->all();
     }
 
