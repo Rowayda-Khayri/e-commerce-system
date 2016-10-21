@@ -5,7 +5,7 @@
 
 <h1> Add Item </h1>
 
-<form method="POST" action="/category/store">
+<form method="POST" action="/item/store">
     
     <table>
         <tr>
@@ -34,13 +34,15 @@
                 <!--<input  type="text" name="itemSubcategory" value="" required></br></br>-->
                 
                 <select name="itemSubcategory">
-                    <option selected>Choose Subcategory</option>
+                    <option  selected>Choose Subcategory</option>
                     
                     @foreach($subcategories as $subcategory)
                     
-                    <option >{{$subcategory->name}}</option>
+                    <option  >{{$subcategory->name}}</option>
                     @endforeach
                 </select>
+                
+                
             </td>
         </tr>
         

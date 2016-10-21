@@ -49,7 +49,30 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = new Item;
+        
+        $item->name = $request->itemName;
+        $item->price = $request->itemPrice;
+        
+        $itemSubcategoryRecord = new Subcategory;
+        $itemSubcategoryRecord = Subcategory::where("name","$request->itemSubcategory")->first();
+        $item->subcategory_id = $itemSubcategoryRecord->id;
+        
+//        $item->subcategory_id = $request->itemSubcategory;
+       
+        $item->save();
+       
+        $items = Item::query()
+        ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
+        ->leftjoin('categories as c','c.id', '=', 's.category_id')
+        ->get([
+            'items.*', 
+            's.name as subcategory_name',
+            'c.name as category_name'            
+        ])->sortByDesc("created_at");
+        
+        return view('item/show', compact('items'));
+//        return $itemSubcategoryRecord->id;  
     }
 
     /**
