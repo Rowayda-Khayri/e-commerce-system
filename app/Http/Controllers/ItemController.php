@@ -32,7 +32,11 @@ class ItemController extends Controller
     public function create()
     {
         
-        return view('item.add');
+        $subcategories = new Subcategory;
+        $subcategories = Subcategory::all();
+        
+        
+        return view('item.add',  compact('subcategories'));
         
 
     }

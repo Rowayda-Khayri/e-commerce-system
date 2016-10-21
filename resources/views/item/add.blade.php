@@ -31,7 +31,16 @@
                 <label>Subcategory :</label>
             </td>
             <td>
-                <input  type="text" name="itemSubcategory" value="" required></br></br>
+                <!--<input  type="text" name="itemSubcategory" value="" required></br></br>-->
+                
+                <select name="itemSubcategory">
+                    <option selected>Choose Subcategory</option>
+                    
+                    @foreach($subcategories as $subcategory)
+                    
+                    <option >{{$subcategory->name}}</option>
+                    @endforeach
+                </select>
             </td>
         </tr>
         
