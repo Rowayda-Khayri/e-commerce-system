@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Item;
+use App\Category;
+use App\Subcategory;
+
 use App\Http\Requests;
 use DB;
 use DateTime;
@@ -51,10 +55,16 @@ class ItemController extends Controller
      */
     public function show()
     {
-//        $items= Item::all();
+       $items = new Item;
+       $items = Item::all();
+//        $items = Item::all()->sortByDesc("created_at");
         
+//        $subcategory= Subcategory::where('id','$item->subcategory_id');->first();
+//
+//        return $subcategory;
 
-        return view('item.show');
+        return view('item.show',  compact('items'));
+//        return $items;
     }
 
     /**
