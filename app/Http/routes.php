@@ -56,13 +56,16 @@ Route::post('/item/store','ItemController@store');
 Route::get('/item/add','ItemController@create');
 Route::post('/item/destroy/{id}','ItemController@destroy');
 Route::get('/item/destroy/{id}','ItemController@destroy');
+Route::get('/item/edit/{id}','ItemController@edit');
 
 
 
 
 
 
-///subcategory/update/
+
+
+
 
 
 
