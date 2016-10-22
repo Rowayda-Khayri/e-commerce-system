@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//Route::get('/', 'ItemController@show');
 
 Route::get('user', 'UserController@show');
 Route::get('order', 'OrderController@show');

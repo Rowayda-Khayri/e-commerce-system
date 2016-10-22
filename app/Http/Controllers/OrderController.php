@@ -59,9 +59,8 @@ class OrderController extends Controller
         
         $order->save();
        
-        //test API 
+        ////test API 
         
-         
        $items = Item::query()
         ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
         ->leftjoin('categories as c','c.id', '=', 's.category_id')
@@ -110,7 +109,6 @@ class OrderController extends Controller
         
          //test API 
         
-        
 //        return view('item.clientShow',  compact('items','orderId'));
        
     }
@@ -121,7 +119,7 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store()             ////// API
     {
 //         $order = new Order;
 //        
