@@ -61,15 +61,18 @@ class OrderController extends Controller
        
         $order->save();
        
+//        \redirect('/item/addItem');
         
-        return [$items, $order];
+        $returnArray = [$items, $order]; 
+        return json_encode($returnArray);
+//        return 'hellooooooooo';
     }
     
     
     
-    public function addItem(Request $request)
+    public function addItem()
     {
-        
+//        return "hi";
     }
 
     /**

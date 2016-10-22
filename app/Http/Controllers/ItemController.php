@@ -73,6 +73,7 @@ class ItemController extends Controller
         
         return view('item/show', compact('items'));
 //        return $itemSubcategoryRecord->id;  
+//        return $request;
     }
 
     /**
