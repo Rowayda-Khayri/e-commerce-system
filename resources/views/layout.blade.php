@@ -70,6 +70,9 @@
                         <li class="dropdown dropdown-notifications">
                             <a href="#notifications-panel" class="dropdown-toggle">
                               <i data-count="2" class="glyphicon glyphicon-bell notification-icon"></i>
+                            @if( ! empty($notifications))
+                              You have new orders to review
+                            @endif
                             </a>
                         </li>
 

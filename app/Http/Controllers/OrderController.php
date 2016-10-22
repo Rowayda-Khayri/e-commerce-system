@@ -47,6 +47,12 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
+        
+        //////
+        
+        $notifications = "notifications";
+        
+        return view('welcome',compact('notifications'));
     }
 
     /**
