@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('user', 'UserController@show');
-Route::get('order', 'OrderController@index');
+Route::get('order', 'OrderController@show');
 //Route::get('item', 'ItemController@index');
 Route::get('/item', 'ItemController@show');
 Route::post('/item', 'ItemController@show');

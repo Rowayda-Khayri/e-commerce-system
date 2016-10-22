@@ -54,10 +54,10 @@
                         <a href="/item">Items</a>
                     </li>
                     <li>
-                        <a href="#">Orders</a>
+                        <a href="/order">Orders</a>
                     </li>
                     <li>
-                        <a href="#">Clients</a>
+                        <a href="/user">Clients</a>
                     </li>
                     
                 </ul>

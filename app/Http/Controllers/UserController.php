@@ -76,7 +76,12 @@ class UserController extends Controller
         $user->updated_at = new DateTime;
         $user->save();
         
-        return "user approved";
+        
+        $users = User::query()->where('user_type_id',2)->get()
+        ->sortByDesc("created_at");
+       
+        return view('user.show',  compact('users'));
+//        return "user approved";
     }
 
     /**
