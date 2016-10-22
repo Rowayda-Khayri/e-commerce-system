@@ -11,6 +11,7 @@ use App\Category;
 use App\Subcategory;
 use App\User;
 use App\Order;
+use App\Order_item;
 
 use DB;
 use DateTime;
@@ -72,9 +73,11 @@ class OrderController extends Controller
     
     public function detail($id)
     {
+        $orderItems = new Item;
+        $orderItems = Order_item::all()->where("order_id","$id");
+
         
-        
-        return view('order.detail');
+        return view('order.detail',  compact('orderItems'));
     }
     
     

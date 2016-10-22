@@ -25,6 +25,21 @@
                 
             </tr>
             
+            @foreach($orderItems as $orderItem)
+        
+            <tr>
+                <td style="font-size: 20px;" > </td>
+               
+                <td style="font-size: 20px;" >{{$orderItem->quantity}} </td>
+                
+                <td style="font-size: 20px;" >{{$orderItem->total_item_price}} </td>
+                
+               
+                
+            </tr>
+            
+             @endforeach
+            
             
            
             
