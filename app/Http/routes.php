@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-//Route::get('/', 'ItemController@show');
+
 
 Route::get('user', 'UserController@show');
 Route::get('order', 'OrderController@show');
@@ -59,9 +59,6 @@ Route::post('/item/destroy/{id}','ItemController@destroy');
 Route::get('/item/destroy/{id}','ItemController@destroy');
 Route::get('/item/edit/{id}','ItemController@edit');
 Route::post('/item/update/{id}','ItemController@update');
-
-
-
 
 
 Route::get('/user/approve/{id}', 'UserController@approve');

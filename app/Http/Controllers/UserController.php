@@ -60,7 +60,7 @@ class UserController extends Controller
         
         $users = new User;
        
-       $users = User::query()->where('user_type_id',2)->get()
+        $users = User::query()->where('user_type_id',2)->get()
         ->sortByDesc("created_at");
        
         return view('user.show',  compact('users'));
@@ -81,7 +81,7 @@ class UserController extends Controller
         ->sortByDesc("created_at");
        
         return view('user.show',  compact('users'));
-//        return "user approved";
+
     }
 
     /**

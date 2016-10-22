@@ -53,7 +53,7 @@ class OrderController extends Controller
        
        $order = new Order;
         
-        $order->user_id = 1; //////////////////////from session
+        $order->user_id = 2; //////////////////////from session
        
        $order->review = 0;
         
@@ -132,9 +132,9 @@ class OrderController extends Controller
         
         $notifications = "make admin notification"; 
         
-        $returnArray = [$notifications]; 
-        return json_encode($returnArray);
-//        return view('/item',compact('notifications'));
+//        $returnArray = [$notifications]; 
+//        return json_encode($returnArray);
+        return view('welcome',compact('notifications'));
     }
 
     /**
@@ -174,7 +174,7 @@ class OrderController extends Controller
         
    
         return view('order.show',  compact('orders'));
-//        return "review";
+
     }
     
     
@@ -190,7 +190,7 @@ class OrderController extends Controller
         
    
         return view('order.show',  compact('orders'));
-//        return $orders;
+
     }
 
     
@@ -229,7 +229,6 @@ class OrderController extends Controller
         
    
         return view('order.show',  compact('orders'));
-//        return $orders;
        }
     
     

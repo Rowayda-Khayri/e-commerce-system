@@ -27,8 +27,7 @@ class ItemController extends Controller
     public function apiTest()
     {
         
-        $items = new Item;
-//       $items = Item::all()->sortByDesc("created_at");
+       $items = new Item;
        
        $items = Item::query()
         ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
@@ -41,7 +40,7 @@ class ItemController extends Controller
        
        
         return view('item.clientShow',  compact('items'));
-//       return "test";
+
 
     }
 
@@ -79,7 +78,6 @@ class ItemController extends Controller
         $itemSubcategoryRecord = Subcategory::where("name","$request->itemSubcategory")->first();
         $item->subcategory_id = $itemSubcategoryRecord->id;
         
-//        $item->subcategory_id = $request->itemSubcategory;
        
         $item->save();
        
@@ -93,8 +91,7 @@ class ItemController extends Controller
         ])->sortByDesc("created_at");
         
         return view('item/show', compact('items'));
-//        return $itemSubcategoryRecord->id;  
-//        return $request;
+
     }
 
     /**
@@ -106,7 +103,6 @@ class ItemController extends Controller
     public function show()
     {
        $items = new Item;
-//       $items = Item::all()->sortByDesc("created_at");
        
        $items = Item::query()
         ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
@@ -118,14 +114,7 @@ class ItemController extends Controller
         ])->sortByDesc("created_at");
        
        
-        
-        
-//        $subcategory= Subcategory::where('id','$item->subcategory_id');->first();
-//
-//        return $subcategory;
-
         return view('item.show',  compact('items'));
-//        return $items;
     }
 
     /**
@@ -150,7 +139,6 @@ class ItemController extends Controller
        
        
         return view('item.edit', compact('myItem','subcategories'));
-//        return $myItem;
     }
 
     /**

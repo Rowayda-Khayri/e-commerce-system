@@ -71,9 +71,6 @@ class CategoryController extends Controller
 
         $categories= Category::all();
         
-//        $categories = Category::all()->sortByDesc("created_at");
-
-
         return view('category.show', compact('categories'));
 
     }
@@ -110,45 +107,10 @@ class CategoryController extends Controller
         $category->updated_at = new DateTime;
         $category->save();
         
-//        $subcategoriesNumber = count($request->input('subcategoryName'));
-//        
-//        for($i=0;$i<$subcategoriesNumber;$i++){
-//            
-//            $subcategoryId = $request->input("subcategoryId.$i");
-////            $subId = Input::get('subcategoryName.1.id');
-//            $subcategory= Subcategory::find($subcategoryId);
-//            $subcategory->name = $request->input("subcategoryName.$i");
-//            $subcategory->updated_at = new DateTime;
-//            $subcategory->save();
-//            
-//            return $request->input("subcategoryId.$i");
-//            
-//        }
-        
+
         $categories= Category::all();
         return view('category.show', compact('categories'));
-        
-//        $subcategoriesList = Input::get('subcategoryName');
-        
-//        foreach($subcategoriesList as $subcategoryName => $n ) {
-//            $subcategoryName= Subcategory::find($id);
-//        
-////        $subcategory->name = $n;
-////        $subcategory->updated_at = new DateTime;
-////        $subcategory->save();
-//        }
-//        return $subcategoriesList;
-        
-//        return [$request->all(),
-//            $request->input('subcategoryName')];
-        
-//        return $request->input('subcategoryName.1');
-//        return $request->Input::get('subcategoryName.1.id');
-//        return $request[3][0];
-//        return count($request->input('subcategoryName'));
-//        return $subcategoriesNumber;
-//        return [$request['subcategoryName'],$request['subcategoryId']];
-
+     
     }
 //
     /**

@@ -34,9 +34,9 @@ class SubcategoryController extends Controller
     {
         $subcategory= new Subcategory;
         $subcategory->category_id = $id;
-//        
+        
         return view('subcategory.add',compact('subcategory'));
-//        return 'hello sub add';
+
     }
 
     /**
@@ -47,21 +47,19 @@ class SubcategoryController extends Controller
      */
     public function store(Request $request,$id)
     {
-//        
+       
         $subcategory= new Subcategory;
-//        
+       
         $subcategory->name = $request->subcategoryName;
         $subcategory->category_id = $id;
-//        
-//
+
         $subcategory->save();
         
-//        $subcategories= Subcategory::all();
+
         $category = new Category;
         $category= Category::find($id);
         return view('category.edit',compact('category'));
-        
-//        return $request->all();
+
     }
 
     /**
@@ -125,8 +123,7 @@ class SubcategoryController extends Controller
         $subcategory->save();
         $subcategory->delete();
         
-//        return back();
-          $category = new Category;
+        $category = new Category;
         $category= Category::find($subcategory->category_id);
         return view('category.edit', compact('category'));
     }
