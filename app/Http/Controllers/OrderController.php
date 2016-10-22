@@ -69,6 +69,16 @@ class OrderController extends Controller
 //        return $orders;
     }
 
+    
+    public function detail($id)
+    {
+        
+        
+        return view('order.detail');
+    }
+    
+    
+    
     /**
      * Show the form for editing the specified resource.
      *

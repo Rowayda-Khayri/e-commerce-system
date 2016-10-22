@@ -35,7 +35,7 @@
                 <td style="font-size: 20px;" >{{$order->total_order_price}} </td>
                 
                
-                <td><a href="/order/detail/id">Order Details</a></td>
+                <td><a href="/order/detail/{{$order->id}}">Order Details</a></td>
                 
             </tr>
             
