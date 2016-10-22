@@ -71,11 +71,9 @@ class OrderController extends Controller
             'c.name as category_name'            
         ])->sortByDesc("created_at");
        
-       
-        return view('item.clientShow',  compact('items','order'));
         
-//        $returnArray = [$items, $order]; 
-//        return json_encode($returnArray);
+        $returnArray = [$items, $order]; 
+        return json_encode($returnArray);
        
     }
     
@@ -86,19 +84,19 @@ class OrderController extends Controller
         
         $order_item = new Order_item;
         
-        $order_item->user_id = 1; //////////////////////from session
+        $order_item->user_id = 1;          ///////should come from session
        
         $order_item->order_id = $orderId;
         
 //        $quantity = Input::get('itemQuantity');
         
-//        $order_item->quantity = $quantity;
-//      
-//       
+        $order_item->quantity = 4;     //////// should come from view
+        $order_item->total_item_price = 400;     //////// should be calculated
+
         $order_item->save();
         
         $items = new Item;
-       $items = Item::query()
+        $items = Item::query()
         ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
         ->leftjoin('categories as c','c.id', '=', 's.category_id')
         ->get([
@@ -123,15 +121,22 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+//         $order = new Order;
+//        
+//        $order = Order::find($orderId)->first();
+//        $order->user_id = 1; //////////////////////from session
+//       
+//       $order->review = 0;
+//        
+//        $order->save();
         
-        //////
+        $notifications = "make admin notification"; 
         
-        $notifications = "notifications";
-        
-        return view('welcome',compact('notifications'));
+        $returnArray = [$notifications]; 
+        return json_encode($returnArray);
+//        return view('/item',compact('notifications'));
     }
 
     /**
