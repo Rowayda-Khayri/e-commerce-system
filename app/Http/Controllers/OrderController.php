@@ -87,7 +87,27 @@ class OrderController extends Controller
         return view('order.detail',  compact('orderItems'));
 //        return $orderItems[0];
     }
+ 
     
+       public function sent($id)
+       {
+           $order = Order::find($id);
+           $order->review = 1;
+           $order->sent_at = new DateTime;
+           $order->updated_at = new DateTime;
+           $order->save();
+           
+           $orders = Order::query()
+                ->leftjoin('users as u','user_id', '=', 'u.id')
+                ->where('sent_at',null)->get([
+                    'orders.*', 
+                    'u.username as client_name'])
+                ->sortByDesc("created_at");
+        
+   
+        return view('order.show',  compact('orders'));
+//        return $orders;
+       }
     
     
     /**
