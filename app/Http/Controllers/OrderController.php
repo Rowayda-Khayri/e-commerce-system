@@ -35,7 +35,41 @@ class OrderController extends Controller
      */
     public function create()
     {
-        echo 'create order :)';
+        
+        // list all items for client
+        
+        $items = new Item;
+
+       $items = Item::query()
+        ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
+        ->leftjoin('categories as c','c.id', '=', 's.category_id')
+        ->get([
+            'items.*', 
+            's.name as subcategory_name',
+            'c.name as category_name'            
+        ])->sortByDesc("created_at");
+       
+       //add new order record in db 
+       
+       $order = new Order;
+        
+        $order->user_id = 1; //////////////////////from session
+       
+       $order->review = 0;
+        
+//        $item->subcategory_id = $request->itemSubcategory;
+       
+        $order->save();
+       
+        
+        return [$items, $order];
+    }
+    
+    
+    
+    public function addItem(Request $request)
+    {
+        
     }
 
     /**
@@ -157,9 +191,23 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        
+        $orders = Order::query()
+                ->leftjoin('users as u','user_id', '=', 'u.id')
+                ->where('sent_at',null)->get([
+                    'orders.*', 
+                    'u.username as client_name'])
+                ->sortByDesc("created_at");
+        
+        $order = Order::query()
+                ->leftjoin('users as u','user_id', '=', 'u.id')
+                ->where('sent_at',null)->get([
+                    'orders.*', 
+                    'u.username as client_name'])
+                ->sortByDesc("created_at");
+        return [$orders, $order];
     }
 
     /**
