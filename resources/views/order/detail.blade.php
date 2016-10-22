@@ -4,8 +4,9 @@
 @section('pageContent')
 
 
-<!--<form method="POST" action="/item/add">-->
+<form method="POST" action="/order/sent/{{$orderItems[0]->order_id}}">
     
+    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 <h1>
     Order Details
 </h1>
@@ -28,7 +29,7 @@
             @foreach($orderItems as $orderItem)
         
             <tr>
-                <td style="font-size: 20px;" > </td>
+                <td style="font-size: 20px;" >{{$orderItem->item_name}} </td>
                
                 <td style="font-size: 20px;" >{{$orderItem->quantity}} </td>
                 
@@ -40,12 +41,16 @@
             
              @endforeach
             
-            
+             <tr>
+                 <td>
+                     <input  type="submit" name="sent" value="Order is reviewed and sent " class="btn btn-primary" />
+                 </td>
+             </tr>
            
             
         </table>
     
-<!--</form>-->
+</form>
 
 @stop
 
