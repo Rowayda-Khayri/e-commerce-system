@@ -70,9 +70,11 @@
                         <li class="dropdown dropdown-notifications">
                             <a href="/order/review" class="dropdown-toggle">
                               <i data-count="2" class="glyphicon glyphicon-bell notification-icon"></i>
-                            @if( ! empty($notifications))
+                            
+                              @if( ! empty($notifications))
                               You have new orders to review
-                            @endif
+                              @endif
+                              
                             </a>
                         </li>
 
