@@ -30,7 +30,7 @@
             <tr>
                 <td style="font-size: 20px;" >{{$order->id}} </td>
                
-                <td style="font-size: 20px;" > </td>
+                <td style="font-size: 20px;" >{{$order->client_name}} </td>
                 
                 <td style="font-size: 20px;" >{{$order->total_order_price}} </td>
                 

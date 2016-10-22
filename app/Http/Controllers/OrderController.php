@@ -61,19 +61,12 @@ class OrderController extends Controller
                 ->leftjoin('users as u','user_id', '=', 'u.id')
                 ->where('sent_at',null)->get([
                     'orders.*', 
-                    'u.username as client_name']);
-//                ->sortByDesc("created_at");
+                    'u.username as client_name'])
+                ->sortByDesc("created_at");
         
-       
-//        $item = Item::query()
-//        ->leftjoin('subcategories as s','subcategory_id', '=', 's.id')
-//        ->where("items.id", "=", "$id")->get([
-//            'items.*', 
-//            's.name as subcategory_name'])
-//               ;
-        
-//        return view('order.show',  compact('orders'));
-        return $orders;
+   
+        return view('order.show',  compact('orders'));
+//        return $orders;
     }
 
     /**
