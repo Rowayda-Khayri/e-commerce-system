@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('user', 'UserController@index');
+Route::get('user', 'UserController@show');
 Route::get('order', 'OrderController@index');
 //Route::get('item', 'ItemController@index');
 Route::get('/item', 'ItemController@show');
@@ -58,6 +58,8 @@ Route::post('/item/destroy/{id}','ItemController@destroy');
 Route::get('/item/destroy/{id}','ItemController@destroy');
 Route::get('/item/edit/{id}','ItemController@edit');
 Route::post('/item/update/{id}','ItemController@update');
+
+
 
 
 

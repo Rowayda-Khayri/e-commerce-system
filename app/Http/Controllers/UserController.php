@@ -6,6 +6,15 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+
+use App\Item;
+use App\Category;
+use App\Subcategory;
+use App\User;
+
+use DB;
+use DateTime;
+
 class UserController extends Controller
 {
     /**
@@ -46,9 +55,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        
+        $users = new User;
+       
+       $users = User::query()->where('user_type_id',2)->get()
+        ->sortByDesc("created_at");
+       
+        return view('user.show',  compact('users'));
+//        return "hi";
     }
 
     /**
