@@ -61,6 +61,41 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
+    
+    public function review()
+    {
+        //// show only orders with review = 0
+        
+        $orders = new Order;
+        $orders = Order::query()
+                ->leftjoin('users as u','user_id', '=', 'u.id')
+                ->where('review',0)->get([
+                    'orders.*', 
+                    'u.username as client_name'])
+                ->sortByDesc("created_at");
+        
+        //// set all orders review = 1
+        
+        
+        $allOrders= Order::all();
+         
+        foreach ($allOrders as $order){
+            
+        $order->review = 1;
+       
+        $order->updated_at = new DateTime;
+        $order->save();
+        }
+        
+        
+        
+   
+        return view('order.show',  compact('orders'));
+//        return "review";
+    }
+    
+    
     public function show()
     {
         $orders = new Order;

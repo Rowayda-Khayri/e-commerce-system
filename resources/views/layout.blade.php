@@ -68,7 +68,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="dropdown dropdown-notifications">
-                            <a href="#notifications-panel" class="dropdown-toggle">
+                            <a href="/order/review" class="dropdown-toggle">
                               <i data-count="2" class="glyphicon glyphicon-bell notification-icon"></i>
                             @if( ! empty($notifications))
                               You have new orders to review

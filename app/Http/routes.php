@@ -66,6 +66,7 @@ Route::get('/user/approve/{id}', 'UserController@approve');
 Route::get('/order/detail/{id}', 'OrderController@detail');
 Route::post('/order/sent/{id}', 'OrderController@sent');
 Route::get('/order/store', 'OrderController@store');
+Route::get('/order/review', 'OrderController@review');
 
 
 
