@@ -133,7 +133,6 @@ class OrderController extends Controller
        public function sent($id)
        {
            $order = Order::find($id);
-           $order->review = 1;
            $order->sent_at = new DateTime;
            $order->updated_at = new DateTime;
            $order->save();
