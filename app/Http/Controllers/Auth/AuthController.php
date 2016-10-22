@@ -8,6 +8,21 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
+
+//use Illuminate\Http\Request;
+//
+//use App\Http\Requests;
+//
+//use App\Item;
+//use App\Category;
+//use App\Subcategory;
+//
+//use App\Order;
+//use App\Order_item;
+//
+//use DB;
+//use DateTime;
+
 class AuthController extends Controller
 {
     /*
@@ -69,14 +84,43 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
-    
-    
-    public function login()
-    {
-        return "hi login";
-    }
-    
-    
-    
+//    
+//    
+////    public function login()
+////    {
+////        
+////        
+//////        return "hi login";
+////    }
+////    
+//    
+//    
+////    public function Register(Request $request)
+////    {
+//////        $user = new User;
+//////        $user->username = $request->name;
+//////        $user->email = $request->email;
+//////        $user->password = $request->password;
+//////        $user->user_type_id =2 ;
+//////        $user->status = 0;
+//////        
+//////
+//////        $user->save();
+//////        
+//////        
+//////        
+//////        $items = Item::query()
+//////        ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
+//////        ->leftjoin('categories as c','c.id', '=', 's.category_id')
+//////        ->get([
+//////            'items.*', 
+//////            's.name as subcategory_name',
+//////            'c.name as category_name'            
+//////        ])->sortByDesc("created_at");
+//////       
+//////        return view('item.show',  compact('items'));
+////    }
+////    
+//    
     
 }
