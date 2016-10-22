@@ -32,9 +32,9 @@
                 <td style="font-size: 20px;" >{{$user->username}} </td>
                
                 <td style="font-size: 20px;" > {{$user->status}}</td>
-               
+               @if($user->status == 0)
                 <td><a href="/user/approve/">Approve</a></td>
-                
+                @endif
             </tr>
             
              @endforeach
