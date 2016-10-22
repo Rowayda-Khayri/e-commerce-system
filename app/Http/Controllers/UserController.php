@@ -66,6 +66,18 @@ class UserController extends Controller
         return view('user.show',  compact('users'));
 //        return "hi";
     }
+    
+    public function approve($id)
+    {
+        
+        $user= User::find($id);
+        
+        $user->status = 1;
+        $user->updated_at = new DateTime;
+        $user->save();
+        
+        return "user approved";
+    }
 
     /**
      * Show the form for editing the specified resource.
