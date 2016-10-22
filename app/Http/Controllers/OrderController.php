@@ -33,7 +33,7 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create()    ////// API
     {
         
         // list all items for client
@@ -57,22 +57,64 @@ class OrderController extends Controller
        
        $order->review = 0;
         
-//        $item->subcategory_id = $request->itemSubcategory;
-       
         $order->save();
        
-//        \redirect('/item/addItem');
+        //test API 
         
-        $returnArray = [$items, $order]; 
-        return json_encode($returnArray);
-//        return 'hellooooooooo';
+         
+       $items = Item::query()
+        ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
+        ->leftjoin('categories as c','c.id', '=', 's.category_id')
+        ->get([
+            'items.*', 
+            's.name as subcategory_name',
+            'c.name as category_name'            
+        ])->sortByDesc("created_at");
+       
+       
+        return view('item.clientShow',  compact('items','order'));
+        
+//        $returnArray = [$items, $order]; 
+//        return json_encode($returnArray);
+       
     }
     
     
     
-    public function addItem()
+    public function addItem($orderId,$itemId)       ////// API
     {
-//        return "hi";
+        
+        $order_item = new Order_item;
+        
+        $order_item->user_id = 1; //////////////////////from session
+       
+        $order_item->order_id = $orderId;
+        
+//        $quantity = Input::get('itemQuantity');
+        
+//        $order_item->quantity = $quantity;
+//      
+//       
+        $order_item->save();
+        
+        $items = new Item;
+       $items = Item::query()
+        ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
+        ->leftjoin('categories as c','c.id', '=', 's.category_id')
+        ->get([
+            'items.*', 
+            's.name as subcategory_name',
+            'c.name as category_name'            
+        ])->sortByDesc("created_at");
+       
+        $returnArray = [$items, $orderId]; 
+        return json_encode($returnArray);
+        
+         //test API 
+        
+        
+//        return view('item.clientShow',  compact('items','orderId'));
+       
     }
 
     /**

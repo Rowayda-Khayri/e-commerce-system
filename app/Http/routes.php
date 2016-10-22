@@ -60,6 +60,9 @@ Route::get('/item/edit/{id}','ItemController@edit');
 Route::post('/item/update/{id}','ItemController@update');
 
 
+
+
+
 Route::get('/user/approve/{id}', 'UserController@approve');
 
 
@@ -68,11 +71,18 @@ Route::post('/order/sent/{id}', 'OrderController@sent');
 Route::get('/order/store', 'OrderController@store');
 Route::get('/order/review', 'OrderController@review');
 Route::get('/order/edit', 'OrderController@edit');
-Route::get('/order/create', 'OrderController@create');
+Route::post('/order/create', 'OrderController@create');
 //Route::get('/order/addItem', 'OrderController@addItem');
-Route::post('/order/addItem', 'OrderController@addItem');
+Route::get('/order/addItem/{orderId}/{itemId}', 'OrderController@addItem');
 
 
+/////////// API Test Routes
+
+Route::get('/item/clientShow','ItemController@apiTest');
+
+
+
+////////////Auth
 
 Route::auth();
 

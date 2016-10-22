@@ -23,6 +23,27 @@ class ItemController extends Controller
     {
         echo 'Welcome in ItemController :)';
     }
+    
+    public function apiTest()
+    {
+        
+        $items = new Item;
+//       $items = Item::all()->sortByDesc("created_at");
+       
+       $items = Item::query()
+        ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
+        ->leftjoin('categories as c','c.id', '=', 's.category_id')
+        ->get([
+            'items.*', 
+            's.name as subcategory_name',
+            'c.name as category_name'            
+        ])->sortByDesc("created_at");
+       
+       
+        return view('item.clientShow',  compact('items'));
+//       return "test";
+
+    }
 
     /**
      * Show the form for creating a new resource.
