@@ -78,7 +78,7 @@ class ItemController extends Controller
         $itemSubcategoryRecord = Subcategory::where("name","$request->itemSubcategory")->first();
         $item->subcategory_id = $itemSubcategoryRecord->id;
         
-       
+        
         $item->save();
        
         $items = Item::query()

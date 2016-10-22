@@ -172,7 +172,7 @@ class OrderController extends Controller
         
         
         
-   
+//   return $order;
         return view('order.show',  compact('orders'));
 
     }
