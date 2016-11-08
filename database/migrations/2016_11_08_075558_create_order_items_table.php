@@ -16,7 +16,10 @@ class CreateOrderItemsTable extends Migration
             $table->increments('id');
             $table->integer('quantity');
             $table->integer('total_item_price');
-            $table->integer('review');
+            $table->integer('order_id')->unsigned();
+            $table->integer('item_id')->unsigned();
+            
+            
             $table->timestamps();
             $table->foreign('order_id')->references('id')->on('orders');
             $table->foreign('item_id')->references('id')->on('items');

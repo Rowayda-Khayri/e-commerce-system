@@ -17,6 +17,9 @@ class CreateOrdersTable extends Migration
             $table->integer('total_order_price');
             $table->integer('review');
             $table->dateTime('sent_at');
+            $table->integer('user_id')->unsigned();
+            
+            
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });
