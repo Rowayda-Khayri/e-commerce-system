@@ -23,14 +23,15 @@ Route::get('/item', 'ItemController@show');
 Route::post('/item', 'ItemController@show');
 //Route::get('subcategory', 'SubcategoryController@index');
 
-Route::get('category', 'CategoryController@show');
+Route::get('/category', 'CategoryController@show');
 Route::post('/category','CategoryController@show');
 
 Route::get('/category/destroy/{id}','CategoryController@destroy');
 
 Route::get('/category/add','CategoryController@create');
-Route::post('/category/store','CategoryController@store');
 Route::post('/category/add','CategoryController@create');
+Route::post('/category/store','CategoryController@store');
+
 
 Route::get('/category/edit/{id}','CategoryController@edit');
 Route::post('/category/update/{id}','CategoryController@update');

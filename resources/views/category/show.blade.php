@@ -21,7 +21,10 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td><input  type="submit" name="add" value="Add New Category" class="btn btn-primary" /> </td>
+                <td>
+                    <input  type="submit" name="add" value="Add New Category" class="btn btn-primary" /> 
+                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                </td>
             </tr> 
     
             @foreach($categories as $category)
@@ -48,7 +51,7 @@
                 <td>
                     <a href="/category/destroy/{{$category->id}}">Delete</a>
                     <!--<input  type="submit" name="delete" value="Delete" class="btn btn-primary" />-->
-                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                    
                 </td>
             </tr>
             
