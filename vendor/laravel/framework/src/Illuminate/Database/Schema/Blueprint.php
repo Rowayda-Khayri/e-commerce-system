@@ -794,8 +794,6 @@ class Blueprint
         $this->timestamp('created_at')->nullable();
 
         $this->timestamp('updated_at')->nullable();
-        
-        $this->timestamp('deleted_at')->nullable();
     }
 
     /**

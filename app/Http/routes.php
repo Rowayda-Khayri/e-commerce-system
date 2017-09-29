@@ -18,10 +18,8 @@ Route::get('/', function () {
 
 Route::get('user', 'UserController@show');
 Route::get('order', 'OrderController@show');
-//Route::get('item', 'ItemController@index');
 Route::get('/item', 'ItemController@show');
 Route::post('/item', 'ItemController@show');
-//Route::get('subcategory', 'SubcategoryController@index');
 
 Route::get('/category', 'CategoryController@show');
 Route::post('/category','CategoryController@show');
@@ -35,9 +33,6 @@ Route::post('/category/store','CategoryController@store');
 
 Route::get('/category/edit/{id}','CategoryController@edit');
 Route::post('/category/update/{id}','CategoryController@update');
-
-//Route::get('/category/listSubcategories','CategoryController@listSubcategories');
-//Route::post('/category/listSubcategories','CategoryController@listSubcategories');
 
 
 Route::get('/subcategory/destroy/{id}','SubcategoryController@destroy');
