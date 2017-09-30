@@ -15,6 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*=============================*/
+/*********Admin Routes**********/
+/*=============================*/
+
+Route::get('M$l36opAdmin/login', 'AuthenticateController@showAdminLoginForm');
+Route::post('M$l36opAdmin/login', 'AuthenticateController@adminLogin');
+
+
+
 
 Route::get('user', 'UserController@show');
 Route::get('order', 'OrderController@show');
