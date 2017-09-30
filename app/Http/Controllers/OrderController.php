@@ -58,10 +58,44 @@ class OrderController extends Controller
     {
           $user = $jwtAuth->toUser($jwtAuth->getToken());
           
+          //check whether user has unsent order or not 
           
+          $unsentOrder = $this->userHasUnsentOrder($user->id);
+          
+          if($unsentOrder){ //user has unsent order.. so, add items to it 
+              
+              $orderItems = new Order_item();
+              $orderItems->order_id = $unsentOrder->id;
+              $orderItems->item_id = $itemID;
+              $orderItems->quantity = $request->quantity;
+              
+              $itemPrice = Item::query()
+                  ->where('id',$itemID)
+                  ->get(['item.price as price']);
+              $orderItems->total_item_price = $orderItems->quantity * $itemPrice->price ;
+              
+              $orderItems->save();
+              
+              
+          }  else {  //user hasn't any unsent orders
+              
+              $newOrder = $this->createNewOrder();
+              
+              $newOrder ->order_id = $unsentOrder->id;
+              $newOrder ->item_id = $itemID;
+              $newOrder ->quantity = $request->quantity;
+              
+              $itemPrice = Item::query()
+                  ->where('id',$itemID)
+                  ->get(['item.price as price']);
+              $newOrder ->total_item_price = $newOrder ->quantity * $itemPrice->price ;
+              
+              $newOrder ->save();
+              
+          }
           
         
-        
+      
         
     }
     
@@ -75,6 +109,18 @@ class OrderController extends Controller
         
         return $unsentOrder;
     }
+    
+    public function createNewOrder()
+    {
+        
+          $order = new Order();
+          
+          $order->user_id = $user->id;
+          $order->save();
+          
+          return $order;
+    }
+    
     
     
 }
