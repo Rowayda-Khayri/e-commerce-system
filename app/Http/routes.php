@@ -99,3 +99,7 @@ Route::post('/', 'AuthenticateController@customerLogin');
 /**registration**/
 Route::get('/register', 'AuthenticateController@showCustomerRegistrationForm');
 Route::post('/register', 'AuthenticateController@customerRegistration');
+
+/**items & orders**/
+Route::get('/items', 'OrderController@listAllItems');
+Route::post('/item/{itemID}/addToChart', 'OrderController@addToChart');
