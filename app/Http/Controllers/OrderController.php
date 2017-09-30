@@ -58,9 +58,11 @@ class OrderController extends Controller
     {
           $user = $jwtAuth->toUser($jwtAuth->getToken());
           
+          $userID = $user->id;
+          
           //check whether user has unsent order or not 
           
-          $unsentOrder = $this->userHasUnsentOrder($user->id);
+          $unsentOrder = $this->userHasUnsentOrder($userID);
           
           if($unsentOrder){ //user has unsent order.. so, add items to it 
               
@@ -79,18 +81,21 @@ class OrderController extends Controller
               
           }  else {  //user hasn't any unsent orders
               
-              $newOrder = $this->createNewOrder();
+              $newOrder = $this->createNewOrder($userID);
               
-              $newOrder ->order_id = $unsentOrder->id;
-              $newOrder ->item_id = $itemID;
-              $newOrder ->quantity = $request->quantity;
+              $newOrderItems = new Order_item();
+              
+              $newOrderItems ->order_id = $unsentOrder->id;
+              $newOrderItems ->item_id = $itemID;
+              $newOrderItems ->quantity = $request->quantity;
               
               $itemPrice = Item::query()
                   ->where('id',$itemID)
-                  ->get(['item.price as price']);
-              $newOrder ->total_item_price = $newOrder ->quantity * $itemPrice->price ;
+                  ->get(['items.price as price'])
+                  ->first();
+              $newOrderItems ->total_item_price = $newOrderItems ->quantity * $itemPrice->price ;
               
-              $newOrder ->save();
+              $newOrderItems ->save();
               
           }
           
@@ -105,17 +110,18 @@ class OrderController extends Controller
         $unsentOrder = Order::query()
                 ->where('user_id',$userID)
                 ->where('sent_at',NULL)
-                ->get();
+                ->get()
+                ->first();
         
         return $unsentOrder;
     }
     
-    public function createNewOrder()
+    public function createNewOrder($userID)
     {
         
           $order = new Order();
           
-          $order->user_id = $user->id;
+          $order->user_id = $userID;
           $order->save();
           
           return $order;
