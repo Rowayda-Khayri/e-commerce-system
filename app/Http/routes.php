@@ -96,8 +96,13 @@ Route::get('/home', 'HomeController@index');
 
 
 /*=============================*/
-   /*********Client API**********/
+   /*********Customer  API**********/
 /*=============================*/
 
+/**login**/
 Route::get('/', 'AuthenticateController@showCustomerLoginForm');
 Route::post('/', 'AuthenticateController@customerLogin');
+
+/**registration**/
+Route::get('/register', 'AuthenticateController@showCustomerRegistrationForm');
+Route::post('/register', 'AuthenticateController@customerRegistration');

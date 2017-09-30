@@ -42,7 +42,9 @@ class AuthenticateController extends Controller
            'adminLogin',
            'showAdminLoginForm',
            'showCustomerLoginForm',
-           'customerLogin'
+           'customerLogin',
+           'showCustomerRegistrationForm',
+           'customerRegistration',
           
            ]]);
        
@@ -101,6 +103,60 @@ class AuthenticateController extends Controller
             return response()->json(["JWT" =>$token]);
     }
 
-     
+     public function showCustomerRegistrationForm()
+    {
+        
+        return json_encode("show customer registration form ");
+    }
    
+    public function customerRegistration(Request $request)
+            
+    {
+
+        // create the validation rules ------------------------
+        $rules = array(                    
+            'email'            => 'required|email|unique:users',     
+            'password'         => 'required|min:6',
+            'password_confirmation' => 'required|same:password',
+            
+        );
+
+        // do the validation ----------------------------------
+        // validate against the inputs from our form
+        $validator = Validator::make(Input::all(), $rules);
+
+
+        // check if the validator failed -----------------------
+        if ($validator->fails()) {
+
+            // get the error messages from the validator
+
+            $errors = $validator->errors();
+
+            $errorsJSON =$errors->toJson();
+
+            return $errorsJSON;
+
+        } else {
+            // validation successful ---------------------------
+
+            //save to db
+            $password=Hash::make($request->input('password'));
+
+            $newuser['password'] = $password;
+            $newuser['username'] = $request->username;
+            $newuser['email'] = $request->email;
+            $newuser['phone'] = $request->phone;
+            $newuser['status'] = 0;
+            $newuser['user_type_id'] = 2;
+
+    //        dd($newuser);
+            User::create($newuser);
+
+            // automatic login after registration
+            return $this->customerLogin($request);
+
+        }
+
+    }
 }
