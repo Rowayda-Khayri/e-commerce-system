@@ -100,7 +100,7 @@ class AuthenticateController extends Controller
             }
 
             // if no errors are encountered we can return a JWT
-            return response()->json(["JWT" =>$token]);
+            return response()->json(["token" =>$token]);
     }
 
      public function showCustomerRegistrationForm()

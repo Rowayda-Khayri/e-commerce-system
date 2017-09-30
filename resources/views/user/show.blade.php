@@ -7,7 +7,7 @@
 <!--<form method="POST" action="/item/add">-->
     
 <h1>
-    Clients
+    Customers
 </h1>
 
 <table class="table ">

@@ -10,26 +10,17 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-//
-//Route::get('/', function () {
-//    return view('auth.adminLogin');
-//});
+
 
 /*=============================*/
 /*********Admin Routes**********/
 /*=============================*/
 
+/**login**/
 Route::get('M$l36opAdmin/login', 'AuthenticateController@showAdminLoginForm');
 Route::post('M$l36opAdmin/login', 'AuthenticateController@adminLogin');
 
-
-
-
-Route::get('user', 'UserController@show');
-Route::get('order', 'OrderController@show');
-Route::get('/item', 'ItemController@show');
-Route::post('/item', 'ItemController@show');
-
+/**categories**/
 Route::get('/category', 'CategoryController@show');
 Route::post('/category','CategoryController@show');
 
@@ -39,9 +30,11 @@ Route::get('/category/add','CategoryController@create');
 Route::post('/category/add','CategoryController@create');
 Route::post('/category/store','CategoryController@store');
 
-
 Route::get('/category/edit/{id}','CategoryController@edit');
 Route::post('/category/update/{id}','CategoryController@update');
+
+/**subcategories**/
+
 
 
 Route::get('/subcategory/destroy/{id}','SubcategoryController@destroy');
@@ -51,11 +44,14 @@ Route::get('/subcategory/add/{id}','SubcategoryController@create');
 Route::post('/subcategory/store/{id}','SubcategoryController@store');
 Route::post('/subcategory/add/{id}','SubcategoryController@create');
 
-
 Route::get('/subcategory/edit/{id}','SubcategoryController@edit');
 Route::post('/subcategory/edit/{id}','SubcategoryController@edit');
 Route::post('/subcategory/edit/{id}','SubcategoryController@edit');
 Route::post('/subcategory/update/{id}','SubcategoryController@update');
+
+/**items**/
+Route::get('/item', 'ItemController@show');
+Route::post('/item', 'ItemController@show');
 
 Route::post('/item/add','ItemController@create');
 Route::post('/item/store','ItemController@store');
@@ -65,8 +61,14 @@ Route::get('/item/destroy/{id}','ItemController@destroy');
 Route::get('/item/edit/{id}','ItemController@edit');
 Route::post('/item/update/{id}','ItemController@update');
 
-
+/**customers**/
+Route::get('user', 'UserController@show');
 Route::get('/user/approve/{id}', 'UserController@approve');
+
+/**orders**/
+Route::get('order', 'OrderController@show');
+
+
 
 
 Route::get('/order/detail/{id}', 'OrderController@detail');
@@ -84,15 +86,6 @@ Route::get('/order/addItem/{orderId}/{itemId}', 'OrderController@addItem');
 /////////// API Test Routes
 
 Route::get('/item/clientShow','ItemController@apiTest');
-
-
-
-////////////Auth
-
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
-
 
 
 /*=============================*/

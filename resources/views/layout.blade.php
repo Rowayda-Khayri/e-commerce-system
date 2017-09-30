@@ -56,7 +56,7 @@
                         <a href="/order">Orders</a>
                     </li>
                     <li>
-                        <a href="/user">Clients</a>
+                        <a href="/user">Customers</a>
                     </li>
                     
                 </ul>
