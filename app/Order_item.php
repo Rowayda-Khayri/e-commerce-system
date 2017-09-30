@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order_item extends Model
 {
+    use SoftDeletes;
     // relations :
     
     public function orders(){
