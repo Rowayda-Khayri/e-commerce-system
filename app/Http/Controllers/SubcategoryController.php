@@ -8,6 +8,7 @@ use App\Http\Requests;
 
 use App\Subcategory;
 use App\Category;
+use App\Item;
 
 use DB;
 use DateTime;
@@ -121,7 +122,19 @@ class SubcategoryController extends Controller
         $subcategory->deleted_at = new DateTime();
         
         $subcategory->save();
-        $subcategory->delete();
+//        $subcategory->delete();
+        
+        $relatedItems =  Item::query()
+                 ->leftjoin('subcategories as s', 's.id', '=', 'items.subcategory_id')
+                ->where('items.subcategory_id',"=",$subcategory->id)
+               ->get(['items.*']);
+        
+        //delete related items
+           foreach ($relatedItems as $item){
+//               dd($subcategory);
+               $item->deleted_at = new DateTime();
+               $item->save();
+           }
         
         $category = new Category;
         $category= Category::find($subcategory->category_id);
