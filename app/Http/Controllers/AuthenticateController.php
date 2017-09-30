@@ -70,9 +70,9 @@ class AuthenticateController extends Controller
         }
 
         // if no errors are encountered we can return a JWT
-//        return response()->json(compact('token'));
-        return response("Hello Admin, U R logged in now and this is your token :" .\n .$token . \n ." but I won't use it for now in your  routes :) ");
-    }
+
+        return view('welcome', compact('token'));
+        }
 
        
    
