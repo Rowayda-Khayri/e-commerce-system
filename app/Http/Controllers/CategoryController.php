@@ -13,8 +13,6 @@ use DB;
 use DateTime;
 
 
-
-
 class CategoryController extends Controller
 {
     /**
@@ -22,10 +20,7 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        
-    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -34,7 +29,6 @@ class CategoryController extends Controller
      */
     public function create(Request $request)
     {
-        
         
         return view('category.add');
     }
@@ -47,7 +41,6 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        
         
         $category = new Category;
         
@@ -87,7 +80,6 @@ class CategoryController extends Controller
         
         $category= Category::find($id);
         
-
         return view('category.edit', compact('category'));
     
     }
@@ -126,7 +118,6 @@ class CategoryController extends Controller
         $category->deleted_at = new DateTime();
         
         $category->save();
-//        $category->delete();
         
         $relatedSubcategories =  Subcategory::query()
                  ->leftjoin('categories as c', 'c.id', '=', 'subcategories.category_id')

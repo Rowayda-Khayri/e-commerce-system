@@ -56,23 +56,14 @@ class SubcategoryController extends Controller
 
         $subcategory->save();
         
-
+        //get category to return to its view 
+        
         $category = new Category;
         $category= Category::find($id);
         return view('category.edit',compact('category'));
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -84,7 +75,6 @@ class SubcategoryController extends Controller
     {
         $subcategory= SubCategory::find($id);
         
-
         return view('subcategory.edit', compact('subcategory'));
     }
 
@@ -103,6 +93,7 @@ class SubcategoryController extends Controller
         $subcategory->updated_at = new DateTime;
         $subcategory->save();
         
+        //get category to return to its view 
         $category = new Category;
         $category= Category::find($subcategory->category_id);
         return view('category.edit',compact('category'));
@@ -122,7 +113,6 @@ class SubcategoryController extends Controller
         $subcategory->deleted_at = new DateTime();
         
         $subcategory->save();
-//        $subcategory->delete();
         
         $relatedItems =  Item::query()
                  ->leftjoin('subcategories as s', 's.id', '=', 'items.subcategory_id')
@@ -136,6 +126,7 @@ class SubcategoryController extends Controller
                $item->save();
            }
         
+           //get category to return to its view 
         $category = new Category;
         $category= Category::find($subcategory->category_id);
         return view('category.edit', compact('category'));

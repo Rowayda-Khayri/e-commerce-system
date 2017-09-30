@@ -55,10 +55,8 @@ class ItemController extends Controller
         $subcategories = new Subcategory;
         $subcategories = Subcategory::all();
         
-        
         return view('item.add',  compact('subcategories'));
         
-
     }
 
     /**
@@ -77,7 +75,6 @@ class ItemController extends Controller
         $itemSubcategoryRecord = new Subcategory;
         $itemSubcategoryRecord = Subcategory::where("name","$request->itemSubcategory")->first();
         $item->subcategory_id = $itemSubcategoryRecord->id;
-        
         
         $item->save();
        
@@ -113,7 +110,6 @@ class ItemController extends Controller
             'c.name as category_name'            
         ])->sortByDesc("created_at");
        
-       
         return view('item.show',  compact('items'));
     }
 
@@ -131,8 +127,8 @@ class ItemController extends Controller
         ->leftjoin('subcategories as s','subcategory_id', '=', 's.id')
         ->where("items.id", "=", "$id")->get([
             'items.*', 
-            's.name as subcategory_name'])
-               ;
+            's.name as subcategory_name']);
+        
         $myItem = $item[0];
         $subcategories = new Subcategory;
         $subcategories = Subcategory::all();
@@ -156,13 +152,11 @@ class ItemController extends Controller
         $sub = $request['itemSubcategory'];
         $subcategory = Subcategory::where("name","$sub")->first();
         
-             
         $item->name = $request->itemName;
         $item->price = $request->itemPrice;
         $item->subcategory_id = $subcategory->id;
         $item->updated_at = new DateTime;
         $item->save();
-        
         
         $items = Item::query()
         ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
@@ -191,7 +185,6 @@ class ItemController extends Controller
         $item->save();
         $item->delete();
         
-
         $items = Item::query()
         ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
         ->leftjoin('categories as c','c.id', '=', 's.category_id')
@@ -201,6 +194,6 @@ class ItemController extends Controller
             'c.name as category_name'            
         ])->sortByDesc("created_at");
         return view('item.show',  compact('items'));
-//        return $items[0]->id;
+
     }
 }
