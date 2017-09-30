@@ -65,7 +65,8 @@ class OrderController extends Controller
         
     }
     
-    public function userHasUnsentOrder($userID)
+    public function userHasUnsentOrder($userID) 
+    // to decide whether I'll create new order instance or add to the unsent one 
     {
         $unsentOrder = Order::query()
                 ->where('user_id',$userID)
