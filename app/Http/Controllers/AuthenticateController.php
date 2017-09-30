@@ -41,6 +41,8 @@ class AuthenticateController extends Controller
        $this->middleware('jwt.auth', ['except' => [
            'adminLogin',
            'showAdminLoginForm',
+           'showCustomerLoginForm',
+           'customerLogin'
           
            ]]);
        
@@ -74,7 +76,31 @@ class AuthenticateController extends Controller
         return view('welcome', compact('token'));
         }
 
-       
+       public function showCustomerLoginForm()
+    {
+
+            return json_encode("show customer login form ");
+           
+    }
    
+     public function customerLogin(Request $request){
+         
+           $credentials = $request->only('email', 'password');
+
+            try {
+                // verify the credentials and create a token for the user
+                if (! $token = JWTAuth::attempt($credentials)) {
+                    return response()->json(['error' => 'invalid_credentials'], 401);
+                }
+            } catch (JWTException $e) {
+                // something went wrong
+                return response()->json(['error' => 'could_not_create_token'], 500);
+            }
+
+            // if no errors are encountered we can return a JWT
+            return response()->json(["JWT" =>$token]);
+    }
+
+     
    
 }

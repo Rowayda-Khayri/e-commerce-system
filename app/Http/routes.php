@@ -10,10 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
-    return view('auth.adminLogin');
-});
+//
+//Route::get('/', function () {
+//    return view('auth.adminLogin');
+//});
 
 /*=============================*/
 /*********Admin Routes**********/
@@ -92,3 +92,12 @@ Route::get('/item/clientShow','ItemController@apiTest');
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+
+
+/*=============================*/
+   /*********Client API**********/
+/*=============================*/
+
+Route::get('/', 'AuthenticateController@showCustomerLoginForm');
+Route::post('/', 'AuthenticateController@customerLogin');
