@@ -126,8 +126,21 @@ class CategoryController extends Controller
         $category->deleted_at = new DateTime();
         
         $category->save();
-        $category->delete();
+//        $category->delete();
         
+        $relatedSubcategories =  Subcategory::query()
+                 ->leftjoin('categories as c', 'c.id', '=', 'subcategories.category_id')
+                ->where('subcategories.category_id',"=",$category->id)
+               ->get(['subcategories.*']);
+        
+        //delete related subcategories
+           foreach ($relatedSubcategories as $subcategory){
+//               dd($subcategory);
+               $subcategory->deleted_at = new DateTime();
+               $subcategory->save();
+           }
+                
+//        dd($relatedSubcategories);
 
         $categories= Category::all();
         return view('category.show', compact('categories'));
