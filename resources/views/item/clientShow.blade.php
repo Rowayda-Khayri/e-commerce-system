@@ -4,7 +4,7 @@
 @section('pageContent')
 
 <!--<h1> Categories </h1>-->
-<form method="POST" action="../order/create">
+<form method="POST" action="../M$l36opAdmin/order/create">
     
     
         <table class="table ">
@@ -42,7 +42,7 @@
                 
                 <td><input  type="text" name="itemQuantity" placeholder="Quantity" value="" ></</td>
                 
-                <td><a href="../order/addItem/{{$order->id}}/{{$item->id}}">Add to my order</a></td>
+                <td><a href="../M$l36opAdmin/order/addItem/{{$order->id}}/{{$item->id}}">Add to my order</a></td>
                 
                 
                

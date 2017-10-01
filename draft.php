@@ -28,21 +28,6 @@ class OrderController extends Controller
         return    'Welcome in OrderController :)';
     }
 
-    public function listAllItems()
-    {
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     /**

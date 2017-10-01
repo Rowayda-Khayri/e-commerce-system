@@ -5,7 +5,7 @@
 
 <h1> Add Item </h1>
 
-<form method="POST" action="/item/store">
+<form method="POST" action="M$l36opAdmin/item/store">
     
     <table>
         <tr>

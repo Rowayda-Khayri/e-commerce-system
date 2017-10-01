@@ -5,7 +5,7 @@
 @section('pageContent')
 
 <!--<h1> Categories </h1>-->
-<form method="POST" action="/item/add">
+<form method="POST" action="M$l36opAdmin/item/add">
     
     
         <table class="table ">
@@ -41,9 +41,9 @@
                 
                 <td style="font-size: 20px;" >{{$item->category_name }} </td>
                 
-                <td><a href="/item/edit/{{$item->id}}">Edit</a></td>
+                <td><a href="M$l36opAdmin/item/edit/{{$item->id}}">Edit</a></td>
                 
-                <td><a href="/item/destroy/{{$item->id}}">Delete</a></td>
+                <td><a href="M$l36opAdmin/item/destroy/{{$item->id}}">Delete</a></td>
                 
             </tr>
             

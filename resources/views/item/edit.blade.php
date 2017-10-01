@@ -5,7 +5,7 @@
 
 
 
-<form method="POST" action="/item/update/{{$myItem->id}}">
+<form method="POST" action="M$l36opAdmin/item/update/{{$myItem->id}}">
     
     <table>
         
