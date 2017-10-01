@@ -66,7 +66,7 @@ Route::get('M$l36opAdmin/user', 'UserController@show');
 Route::get('M$l36opAdmin/user/approve/{id}', 'UserController@approve');
 
 /**orders**/
-Route::get('M$l36opAdmin/order', 'OrderController@show');
+Route::get('M$l36opAdmin/orders', 'OrderController@ListAllOrders');
 
 
 
@@ -83,9 +83,6 @@ Route::post('M$l36opAdmin/order/create', 'OrderController@create');
 Route::get('M$l36opAdmin/order/addItem/{orderId}/{itemId}', 'OrderController@addItem');
 
 
-/////////// API Test Routes
-
-Route::get('M$l36opAdmin/item/clientShow','ItemController@apiTest');
 
 
 /*=============================*/

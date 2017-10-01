@@ -54,7 +54,7 @@
                         <a href="{{ url('/M$l36opAdmin/item')}}">Items</a>
                     </li>
                     <li>
-                        <a href="{{ url('/M$l36opAdmin/order')}}">Orders</a>
+                        <a href="{{ url('/M$l36opAdmin/orders')}}">Orders</a>
                     </li>
                     <li>
                         <a href="{{ url('/M$l36opAdmin/user')}}">Customers</a>
