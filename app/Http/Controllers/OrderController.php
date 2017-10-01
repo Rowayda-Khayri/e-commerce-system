@@ -54,7 +54,7 @@ class OrderController extends Controller
         
     }
     
-    public function addToChart($itemID,JWTAuth $jwtAuth,Request $request)
+    public function addToCart($itemID,JWTAuth $jwtAuth,Request $request)
     {
           $user = $jwtAuth->toUser($jwtAuth->getToken());
           
@@ -64,6 +64,7 @@ class OrderController extends Controller
           
           $unsentOrder = $this->userHasUnsentOrder($userID);
           
+//          dd($unsentOrder);
           if($unsentOrder){ //user has unsent order.. so, add items to it 
               
               $orderItems = new Order_item();
@@ -72,12 +73,21 @@ class OrderController extends Controller
               $orderItems->quantity = $request->quantity;
               
               $itemPrice = Item::query()
-                  ->where('id',$itemID)
-                  ->get(['item.price as price']);
-              $orderItems->total_item_price = $orderItems->quantity * $itemPrice->price ;
+                  ->where('items.id',$itemID)
+                  ->get(['items.price'])
+                  ->first();
               
+              
+              
+              $orderItems->total_item_price = $orderItems->quantity * $itemPrice->price ;
+//              
               $orderItems->save();
               
+                header('Content-Type: application/json', true);
+
+                $json = response::json("item has been added to your cart")->getContent();
+
+                return stripslashes($json);
               
           }  else {  //user hasn't any unsent orders
               
@@ -85,17 +95,25 @@ class OrderController extends Controller
               
               $newOrderItems = new Order_item();
               
-              $newOrderItems ->order_id = $unsentOrder->id;
+              $newOrderItems ->order_id = $newOrder->id;
               $newOrderItems ->item_id = $itemID;
               $newOrderItems ->quantity = $request->quantity;
               
               $itemPrice = Item::query()
-                  ->where('id',$itemID)
-                  ->get(['items.price as price'])
+                  ->where('items.id',$itemID)
+                  ->get(['items.price'])
                   ->first();
+              
               $newOrderItems ->total_item_price = $newOrderItems ->quantity * $itemPrice->price ;
               
               $newOrderItems ->save();
+              
+              
+                header('Content-Type: application/json', true);
+
+                $json = response::json("item has been added to your cart")->getContent();
+
+                return stripslashes($json);
               
           }
           

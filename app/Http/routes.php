@@ -102,4 +102,4 @@ Route::post('/register', 'AuthenticateController@customerRegistration');
 
 /**items & orders**/
 Route::get('/items', 'OrderController@listAllItems');
-Route::post('/item/{itemID}/addToChart', 'OrderController@addToChart');
+Route::post('/item/{itemID}/addToCart', 'OrderController@addToCart');
