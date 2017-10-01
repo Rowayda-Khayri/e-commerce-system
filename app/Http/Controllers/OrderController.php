@@ -126,7 +126,7 @@ class OrderController extends Controller
     {
         $unsentOrder = Order::query()
                 ->where('user_id',$userID)
-                ->where('sent_at',NULL)
+                ->where('ordered_at',NULL)
                 ->get()
                 ->first();
         
@@ -214,5 +214,24 @@ class OrderController extends Controller
         return view('order.details',  compact('orderItems'));
 //        return $orderItems[0];
     }
+    
+    public function shipped($id)
+       {
+           $order = Order::find($id);
+           $order->review = 1; // as if admin doesn't reviewed order from notifications
+           $order->shipped_at = new DateTime;
+           $order->updated_at = new DateTime;
+           $order->save();
+           
+           $orders = Order::query()
+                ->leftjoin('users as u','user_id', '=', 'u.id')
+                ->where('shipped_at',null)->get([
+                    'orders.*', 
+                    'u.username as client_name'])
+                ->sortByDesc("created_at");
+        
+   
+        return view('order.show',  compact('orders'));
+       }
     
 }
