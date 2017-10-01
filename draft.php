@@ -282,3 +282,19 @@ class OrderController extends Controller
         //
     }
 }
+
+
+
+
+/////*********** routes *************/////
+
+//
+//Route::get('M$l36opAdmin/order/store', 'OrderController@store');
+//
+////Route::post('/order/store/{orderId}', 'OrderController@store');
+//
+//Route::get('M$l36opAdmin/order/edit', 'OrderController@edit');
+//Route::post('M$l36opAdmin/order/create', 'OrderController@create');
+////Route::get('/order/addItem', 'OrderController@addItem');
+//Route::get('M$l36opAdmin/order/addItem/{orderId}/{itemId}', 'OrderController@addItem');
+//

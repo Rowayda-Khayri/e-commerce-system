@@ -69,18 +69,8 @@ Route::get('M$l36opAdmin/user/approve/{id}', 'UserController@approve');
 Route::get('M$l36opAdmin/orders', 'OrderController@ListAllOrders');
 Route::get('M$l36opAdmin/order/details/{id}', 'OrderController@details');
 Route::post('M$l36opAdmin/order/shipped/{id}', 'OrderController@shipped');
-
-
-
-
-Route::get('M$l36opAdmin/order/store', 'OrderController@store');
-
-//Route::post('/order/store/{orderId}', 'OrderController@store');
 Route::get('M$l36opAdmin/order/review', 'OrderController@review');
-Route::get('M$l36opAdmin/order/edit', 'OrderController@edit');
-Route::post('M$l36opAdmin/order/create', 'OrderController@create');
-//Route::get('/order/addItem', 'OrderController@addItem');
-Route::get('M$l36opAdmin/order/addItem/{orderId}/{itemId}', 'OrderController@addItem');
+
 
 
 
