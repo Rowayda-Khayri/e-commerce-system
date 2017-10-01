@@ -5,7 +5,8 @@
 
 <h1> Add Category </h1>
 
-<form method="POST" action="M$l36opAdmin/category/store">
+<form method="POST" action="{{ url('/M$l36opAdmin/category/store')}}">
+<!--<form method="POST" action="store">-->
     
     <label>Category Name :</label>
     <input  type="text" name="categoryName" value="" required>

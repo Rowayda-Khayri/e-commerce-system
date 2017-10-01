@@ -44,19 +44,20 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="/category">Categories</a>
+                        <!--<a href="../M$l36opAdmin/category">Categories</a>-->
+                        <a href="{{url('M$l36opAdmin/category')}}">Categories</a>
                     </li>
 <!--                    <li>
                         <a href="#">Subcategories</a>
                     </li>-->
                     <li>
-                        <a href="/item">Items</a>
+                        <a href="{{ url('/M$l36opAdmin/item')}}">Items</a>
                     </li>
                     <li>
-                        <a href="/order">Orders</a>
+                        <a href="{{ url('/M$l36opAdmin/order')}}">Orders</a>
                     </li>
                     <li>
-                        <a href="/user">Customers</a>
+                        <a href="{{ url('/M$l36opAdmin/user')}}">Customers</a>
                     </li>
                     
                 </ul>
@@ -67,7 +68,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="dropdown dropdown-notifications">
-                            <a href="/order/review" class="dropdown-toggle">
+                            <a href="{{ url('/M$l36opAdmin/order/review')}}" class="dropdown-toggle">
                               <i data-count="2" class="glyphicon glyphicon-bell notification-icon"></i>
                             
                               @if( ! empty($notifications))

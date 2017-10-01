@@ -4,7 +4,7 @@
 @section('pageContent')
 
 <!--<h1> Categories </h1>-->
-<form method="POST" action="M$l36opAdmin/category/add">
+<form method="POST" action="{{url('/M$l36opAdmin/category/add')}}">
     
     
         <table class="table ">
@@ -44,12 +44,12 @@
                 
                 
                 <td> 
-                    <a href="M$l36opAdmin/category/edit/{{$category->id}}">Edit</a>
+                    <a href="{{ url('/M$l36opAdmin/category/edit/$category->id}}' )}}">Edit</a>
                     <!--<input  type="submit" name="edit{{$category->id}}" value="Edit" class="btn btn-primary"/>-->
                 </td>
                 
                 <td>
-                    <a href="M$l36opAdmin/category/destroy/{{$category->id}}">Delete</a>
+                    <a href="{{ url('/M$l36opAdmin/category/destroy/{{$category->id}}')}}">Delete</a>
                     <!--<input  type="submit" name="delete" value="Delete" class="btn btn-primary" />-->
                     
                 </td>

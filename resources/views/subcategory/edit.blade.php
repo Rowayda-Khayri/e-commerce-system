@@ -6,7 +6,7 @@
 
 <h1> Edit Subcategory </h1>
 
-<form method="POST" action="M$l36opAdmin/subcategory/update/{{$subcategory->id}}">
+<form method="POST" action="{{ url('/M$l36opAdmin/subcategory/update/{{$subcategory->id}}')}}">
     
     <label>Subcategory Name :</label>
     <input  type="text" name="subcategoryName" value="{{$subcategory->name}}" required>
