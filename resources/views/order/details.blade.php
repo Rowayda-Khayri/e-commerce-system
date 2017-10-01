@@ -4,7 +4,7 @@
 @section('pageContent')
 
 
-<form method="POST" action="{{ url('/M$l36opAdmin/order/sent/'.$orderItems[0]->order_id')}}">
+<form method="POST" action="{{ url('/M$l36opAdmin/order/sent/'.$orderItems[0]->order_id)}}">
     
     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 <h1>
@@ -43,7 +43,7 @@
             
              <tr>
                  <td>
-                     <input  type="submit" name="sent" value="Order is reviewed and sent " class="btn btn-primary" />
+                     <input  type="submit" name="sent" value="Order is reviewed and shipped" class="btn btn-primary" />
                  </td>
              </tr>
            

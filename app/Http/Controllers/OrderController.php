@@ -198,4 +198,21 @@ class OrderController extends Controller
 
     }
     
+    public function details($id)
+    {
+        $orderItems = new Item;
+
+        $orderItems = Order_item::query()
+                ->leftjoin('items as i','item_id','=','i.id')
+                ->where("order_id","$id")
+                ->get([
+                    'order_items.*',
+                    'i.name as item_name'
+                ]);
+
+        
+        return view('order.details',  compact('orderItems'));
+//        return $orderItems[0];
+    }
+    
 }

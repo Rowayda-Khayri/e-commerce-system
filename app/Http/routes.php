@@ -67,7 +67,7 @@ Route::get('M$l36opAdmin/user/approve/{id}', 'UserController@approve');
 
 /**orders**/
 Route::get('M$l36opAdmin/orders', 'OrderController@ListAllOrders');
-Route::get('M$l36opAdmin/order/detail/{id}', 'OrderController@detail');
+Route::get('M$l36opAdmin/order/details/{id}', 'OrderController@details');
 
 
 
