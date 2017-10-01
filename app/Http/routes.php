@@ -67,11 +67,11 @@ Route::get('M$l36opAdmin/user/approve/{id}', 'UserController@approve');
 
 /**orders**/
 Route::get('M$l36opAdmin/orders', 'OrderController@ListAllOrders');
-
-
-
-
 Route::get('M$l36opAdmin/order/detail/{id}', 'OrderController@detail');
+
+
+
+
 Route::post('M$l36opAdmin/order/sent/{id}', 'OrderController@sent');
 Route::get('M$l36opAdmin/order/store', 'OrderController@store');
 

@@ -188,7 +188,7 @@ class OrderController extends Controller
         $orders = new Order;
         $orders = Order::query()
                 ->leftjoin('users as u','user_id', '=', 'u.id')
-                ->where('sent_at',null)->get([
+                ->where('shipped_at',null)->get([
                     'orders.*', 
                     'u.username as client_name'])
                 ->sortByDesc("created_at");
