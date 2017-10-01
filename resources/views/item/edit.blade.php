@@ -5,7 +5,7 @@
 
 
 
-<form method="POST" action="{{ url('/M$l36opAdmin/item/update/{{$myItem->id}}')}}">
+<form method="POST" action="{{ url('/M$l36opAdmin/item/update/'.$myItem->id)}}">
     
     <table>
         

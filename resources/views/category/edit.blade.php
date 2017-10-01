@@ -5,7 +5,7 @@
 
 <h1> Edit Category </h1>
 
-<form method="POST" action="{{ url('/M$l36opAdmin/category/update/{{$category->id}}')}}">
+<form method="POST" action="{{ url('/M$l36opAdmin/category/update/'.$category->id)}}">
     
     <div>
         <label>Category Name :</label>
@@ -18,7 +18,7 @@
     <div>
         <label style="font-size:22px;">Subcategories :</label>
         
-        <a href="{{ url('/M$l36opAdmin/subcategory/add/{{$category->id}}')}}">Add Subcategory</a>
+        <a href="{{ url('/M$l36opAdmin/subcategory/add/'.$category->id)}}">Add Subcategory</a>
         </br></br>
         <table class="table">
             
@@ -28,8 +28,8 @@
             <tr >
             
                 <td   name="subcategoryName[]"  style="margin-right: 30px;font-size: 18px;">{{$subcategory->name}}</td>
-                <td><a href="{{ url('/M$l36opAdmin/subcategory/edit/{{$subcategory->id}}')}}" style="margin-right: 30px;margin-left: 30px;">Edit</a></td>
-                <td><a href="{{ url('/M$l36opAdmin/subcategory/destroy/{{$subcategory->id}}')}}">Delete</a></td>
+                <td><a href="{{ url('/M$l36opAdmin/subcategory/edit/'.$subcategory->id)}}" style="margin-right: 30px;margin-left: 30px;">Edit</a></td>
+                <td><a href="{{ url('/M$l36opAdmin/subcategory/destroy/'.$subcategory->id)}}">Delete</a></td>
                      
 
                     @endforeach

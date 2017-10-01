@@ -42,7 +42,7 @@
                 
                 <td><input  type="text" name="itemQuantity" placeholder="Quantity" value="" ></</td>
                 
-                <td><a href="{{ url('/M$l36opAdmin/order/addItem/{{$order->id}}/{{$item->id}}')}}">Add to my order</a></td>
+                <td><a href="{{ url('/M$l36opAdmin/order/addItem/'.$order->id .'/'.$item->id)}}">Add to my order</a></td>
                 
                 
                

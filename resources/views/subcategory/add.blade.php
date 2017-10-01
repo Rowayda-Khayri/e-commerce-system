@@ -7,7 +7,7 @@
 
 <h1> Add Subcategory </h1>
 
-<form method="POST" action="{{ url('/M$l36opAdmin/subcategory/store/{{$subcategory->category_id}}')}}">
+<form method="POST" action="{{ url('/M$l36opAdmin/subcategory/store/'.$subcategory->category_id)}}">
     
     <label>Subcategory Name :</label>
     <input  type="text" name="subcategoryName" value="" required>

@@ -41,9 +41,9 @@
                 
                 <td style="font-size: 20px;" >{{$item->category_name }} </td>
                 
-                <td><a href="{{ url('/M$l36opAdmin/item/edit/{{$item->id}}')}}">Edit</a></td>
+                <td><a href="{{ url('/M$l36opAdmin/item/edit/'.$item->id)}}">Edit</a></td>
                 
-                <td><a href="{{ url('/M$l36opAdmin/item/destroy/{{$item->id}}')}}">Delete</a></td>
+                <td><a href="{{ url('/M$l36opAdmin/item/destroy/'.$item->id)}}">Delete</a></td>
                 
             </tr>
             

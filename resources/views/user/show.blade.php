@@ -33,7 +33,7 @@
                
                 <td style="font-size: 20px;" > {{$user->status}}</td>
                @if($user->status == 0)
-                <td><a href="{{ url('/M$l36opAdmin/user/approve/{{$user->id}}')}}">Approve</a></td>
+                <td><a href="{{ url('/M$l36opAdmin/user/approve/'.$user->id)}}">Approve</a></td>
                 @endif
             </tr>
             

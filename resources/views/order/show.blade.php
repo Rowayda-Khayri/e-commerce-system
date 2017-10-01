@@ -35,7 +35,7 @@
                 <td style="font-size: 20px;" >{{$order->total_order_price}} </td>
                 
                
-                <td><a href="{{ url('/M$l36opAdmin/order/detail/{{$order->id}}')}}">Order Details</a></td>
+                <td><a href="{{ url('/M$l36opAdmin/order/detail/'.$order->id)}}">Order Details</a></td>
                 
             </tr>
             
