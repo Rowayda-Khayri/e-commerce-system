@@ -33,7 +33,7 @@ class OrderController extends Controller
 
     public function listAllItems()
     {
-         $items = Item::query()
+        $items = Item::query()
         ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
         ->leftjoin('categories as c','c.id', '=', 's.category_id')
         ->get([
@@ -109,17 +109,16 @@ class OrderController extends Controller
               $newOrderItems ->save();
               
               
+              
+          }
+          
+        
                 header('Content-Type: application/json', true);
 
                 $json = response::json("item has been added to your cart")->getContent();
 
                 return stripslashes($json);
-              
-          }
-          
-        
       
-        
     }
     
     public function userHasUnsentOrder($userID) 
@@ -138,13 +137,51 @@ class OrderController extends Controller
     {
         
           $order = new Order();
-          
+
           $order->user_id = $userID;
           $order->save();
-          
+
           return $order;
     }
     
     
+    public function sendOrder(JWTAuth $jwtAuth)
+    {
+        
+        $user = $jwtAuth->toUser($jwtAuth->getToken());
+          
+        $userID = $user->id;
+          
+        //get the order object 
+        
+        $order = Order::query()
+                ->where('user_id',$userID)
+                ->orderBy('created_at','Desc')
+                ->first();
+//        dd($order);
+
+        
+        //calculate total order price 
+        
+        $totalOrderPrice = Order_item::query()
+                ->where('order_id',$order->id)
+                ->sum('total_item_price');
+        
+//        dd($totalOrderPrice);
+        
+        $order->total_order_price = $totalOrderPrice;
+        $order->ordered_at = new DateTime();
+        $order->save();
+        
+        
+        header('Content-Type: application/json', true);
+
+                $json = response::json("your order is waiting for admin review ")->getContent();
+
+                return stripslashes($json);
+        
+        
+        
+    }
     
 }
