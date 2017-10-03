@@ -247,7 +247,9 @@ class OrderController extends Controller
         $orders = new Order;
         $orders = Order::query()
                 ->leftjoin('users as u','user_id', '=', 'u.id')
-                ->where('shipped_at',null)->get([
+                ->where('ordered_at',!null)
+                ->where('shipped_at',null)
+                ->get([
                     'orders.*', 
                     'u.username as client_name'])
                 ->sortByDesc("created_at");
@@ -293,6 +295,7 @@ class OrderController extends Controller
         return view('order.show',  compact('orders'));
        }
        
+
        public function review()
     {
         //// show only orders with review = 0
@@ -300,7 +303,9 @@ class OrderController extends Controller
         $orders = new Order;
         $orders = Order::query()
                 ->leftjoin('users as u','user_id', '=', 'u.id')
-                ->where('review',0)->get([
+                ->where('review',0)
+                ->where('ordered_at',!null)
+                ->get([
                     'orders.*', 
                     'u.username as client_name'])
                 ->sortByDesc("created_at");
