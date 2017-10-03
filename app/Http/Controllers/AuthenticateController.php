@@ -118,6 +118,8 @@ class AuthenticateController extends Controller
             'email'            => 'required|email|unique:users',     
             'password'         => 'required|min:6',
             'password_confirmation' => 'required|same:password',
+            'username' => 'required',
+            'phone' => 'required|digits:11',
             
         );
 

@@ -81,10 +81,14 @@ Route::get('M$l36opAdmin/order/review', 'OrderController@review');
 
 /**login**/
 Route::get('/', 'AuthenticateController@showCustomerLoginForm');
+//params
+//email , password 
 Route::post('/', 'AuthenticateController@customerLogin');
 
 /**registration**/
 Route::get('/register', 'AuthenticateController@showCustomerRegistrationForm');
+//params
+//email , password , password_confirmation , phone , username
 Route::post('/register', 'AuthenticateController@customerRegistration');
 
 /**items & orders**/
