@@ -12,6 +12,10 @@
 */
 
 
+Route::get('/forbidden', function () {
+    return json_encode("Sorry, u cann't make order now .. waiting for admin approval");
+});
+
 /*=============================*/
 /*********Admin Routes**********/
 /*=============================*/
@@ -94,4 +98,6 @@ Route::post('/register', 'AuthenticateController@customerRegistration');
 /**items & orders**/
 Route::get('/items', 'OrderController@listAllItems');
 Route::post('/item/{itemID}/addToCart', 'OrderController@addToCart');
-Route::get('/order/send', 'OrderController@sendOrder');
+Route::get('/order/send', 'OrderController@sendOrder')
+        ->middleware('jwt.auth')
+        ->middleware('status');
