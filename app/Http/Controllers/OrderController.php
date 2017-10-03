@@ -9,6 +9,10 @@ use Response;
 
 use Tymon\JWTAuth\JWTAuth;
 
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+
 use App\Item;
 use App\Category;
 use App\Subcategory;
@@ -80,7 +84,35 @@ class OrderController extends Controller
     
     public function addToCart($itemID,JWTAuth $jwtAuth,Request $request)
     {
-          $user = $jwtAuth->toUser($jwtAuth->getToken());
+        
+        // create the validation rules ------------------------
+        $rules = array(                    
+            
+            'quantity' => 'required|numeric',
+            
+        );
+
+        // do the validation ----------------------------------
+        // validate against the inputs from our form
+        $validator = Validator::make(Input::all(), $rules);
+
+
+        // check if the validator failed -----------------------
+        if ($validator->fails()) {
+
+            // get the error messages from the validator
+
+            $errors = $validator->errors();
+
+            $errorsJSON =$errors->toJson();
+
+            return $errorsJSON;
+
+        } else {
+            // validation successful ---------------------------
+
+            
+        $user = $jwtAuth->toUser($jwtAuth->getToken());
           
           $userID = $user->id;
           
@@ -142,6 +174,9 @@ class OrderController extends Controller
                 $json = response::json("item has been added to your cart")->getContent();
 
                 return stripslashes($json);
+            
+        }
+        
       
     }
     
