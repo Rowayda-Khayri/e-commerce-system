@@ -26,7 +26,7 @@
             </td>
             
             <td>
-                <input  type="text" name="itemName" value="{{$myItem->name}}"/>
+                <input  type="text" name="itemName" value="{{$myItem->name}}"required/>
             </td>
         </tr>
         
@@ -36,7 +36,7 @@
             </td>
             
             <td>
-                <input  type="text" name="itemPrice" value="{{$myItem->price}}"/>
+                <input  type="text" name="itemPrice" value="{{$myItem->price}}" required/>
             </td>
         </tr>
          <tr>

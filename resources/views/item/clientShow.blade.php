@@ -40,7 +40,7 @@
                 
                 <td style="font-size: 20px;" >{{$item->category_name }} </td>
                 
-                <td><input  type="text" name="itemQuantity" placeholder="Quantity" value="" ></</td>
+                <td><input  type="text" name="itemQuantity" placeholder="Quantity" value="" required></</td>
                 
                 <td><a href="{{ url('/M$l36opAdmin/order/addItem/'.$order->id .'/'.$item->id)}}">Add to my order</a></td>
                 

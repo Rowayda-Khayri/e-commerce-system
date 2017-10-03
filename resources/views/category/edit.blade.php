@@ -9,7 +9,7 @@
     
     <div>
         <label>Category Name :</label>
-        <input  type="text" name="categoryName" value="{{$category->name}}">
+        <input  type="text" name="categoryName" value="{{$category->name}}" required>
         <input  type="submit" name="edit" value="Edit" class="btn btn-primary" />
     
     </div>
