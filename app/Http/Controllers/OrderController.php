@@ -310,12 +310,11 @@ class OrderController extends Controller
                     'u.username as client_name'])
                 ->sortByDesc("created_at");
         
+//        dd($orders);
         //// set all orders review = 1
         
         
-        $allOrders= Order::all();
-         
-        foreach ($allOrders as $order){
+        foreach ($orders as $order){
             
         $order->review = 1;
        
