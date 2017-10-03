@@ -33,8 +33,8 @@
             <td>
                 <!--<input  type="text" name="itemSubcategory" value="" required></br></br>-->
                 
-                <select name="itemSubcategory">
-                    <option  selected>Choose Subcategory</option>
+                <select name="itemSubcategory" required>
+                    <option value="" selected>Choose Subcategory</option>
                     
                     @foreach($subcategories as $subcategory)
                     
