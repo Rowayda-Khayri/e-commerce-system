@@ -97,7 +97,7 @@ Route::post('/register', 'AuthenticateController@customerRegistration');
 
 /**items & orders**/
 Route::get('/items', 'OrderController@listAllItems');
-Route::post('/item/{itemID}/addToCart', 'OrderController@addToCart');
+Route::get('/item/{itemID}/addToCart', 'OrderController@addToCart');
 Route::get('/order/send', 'OrderController@sendOrder')
         ->middleware('jwt.auth')
         ->middleware('status');

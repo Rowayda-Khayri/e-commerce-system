@@ -255,7 +255,7 @@ class OrderController extends Controller
                 ->sortByDesc("created_at");
         
    
-        dd($orders);
+//        dd($orders);
         return view('order.show',  compact('orders'));
 
     }
@@ -311,7 +311,7 @@ class OrderController extends Controller
                     'u.username as client_name'])
                 ->sortByDesc("created_at");
         
-        dd($orders);
+//        dd($orders);
         //// set all orders review = 1
         
         
@@ -323,7 +323,7 @@ class OrderController extends Controller
         $order->save();
         }
         
-        dd($orders);
+//        dd($orders);
         return view('order.show',  compact('orders'));
         
     }
