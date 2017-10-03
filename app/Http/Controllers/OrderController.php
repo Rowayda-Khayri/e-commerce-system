@@ -247,7 +247,7 @@ class OrderController extends Controller
         $orders = new Order;
         $orders = Order::query()
                 ->leftjoin('users as u','user_id', '=', 'u.id')
-                ->where('ordered_at',!null)
+                ->where('ordered_at','!=','0000-00-00 00:00:00')
                 ->where('shipped_at',null)
                 ->get([
                     'orders.*', 
@@ -255,6 +255,7 @@ class OrderController extends Controller
                 ->sortByDesc("created_at");
         
    
+        dd($orders);
         return view('order.show',  compact('orders'));
 
     }
@@ -304,13 +305,13 @@ class OrderController extends Controller
         $orders = Order::query()
                 ->leftjoin('users as u','user_id', '=', 'u.id')
                 ->where('review',0)
-                ->where('ordered_at',!null)
+                ->where('ordered_at','!=','0000-00-00 00:00:00')
                 ->get([
                     'orders.*', 
                     'u.username as client_name'])
                 ->sortByDesc("created_at");
         
-//        dd($orders);
+        dd($orders);
         //// set all orders review = 1
         
         
@@ -322,6 +323,7 @@ class OrderController extends Controller
         $order->save();
         }
         
+        dd($orders);
         return view('order.show',  compact('orders'));
         
     }
