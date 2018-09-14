@@ -34,7 +34,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web','auth']], function () { 
     
-    Route::get('logout', 'Auth\AuthController@logout');
+    Route::get('M$l36opAdmin/logout', 'Auth\AuthController@logout');
 
     /**categories**/
     Route::get('M$l36opAdmin/category', 'CategoryController@show');
@@ -101,6 +101,7 @@ Route::group(['middleware' => ['web','auth']], function () {
 //params
 //email , password 
 Route::post('/login', 'AuthenticateController@customerLogin');
+Route::get('/logout', 'AuthenticateController@customerLogout');
 
 //params
 //email , password , password_confirmation , phone , username

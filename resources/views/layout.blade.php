@@ -80,7 +80,7 @@
                         </li>
 
                         <li style="margin-right: 10 px;">
-                        <a href="{{ url('/logout')}}">Logout</a>
+                        <a href="{{ url('/M$l36opAdmin/logout')}}">Logout</a>
                     </li>
                     </ul>
                 </div> <!------ End notification -->

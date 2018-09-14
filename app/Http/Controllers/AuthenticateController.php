@@ -125,5 +125,16 @@ class AuthenticateController extends Controller
 
     }
     
+    public function customerLogout(JWTAuth $jwtAuth){
+        
+        $this->offline($jwtAuth);
+        JWTAuth::invalidate(JWTAuth::getToken());
+        
+        
+        return response()->json([
+            'msg'=>'logged out ..'
+        ]);
+    }
+    
     
 }
