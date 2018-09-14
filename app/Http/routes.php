@@ -16,6 +16,11 @@ Route::get('/forbidden', function () {
     return json_encode("Sorry, u cann't make order now .. waiting for admin approval");
 });
 
+Route::get('/', function () {
+
+    return redirect('M$l36opAdmin/login');
+});
+
 /*=============================*/
 /*********Admin Routes**********/
 /*=============================*/
