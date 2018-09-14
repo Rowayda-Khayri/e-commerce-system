@@ -27,71 +27,67 @@ Route::get('/', function () {
 
 /*********Auth routes **********/
 
-// Admin Authentication Routes...
-Route::get('M$l36opAdmin/login', 'Auth\AuthController@showLoginForm');
-Route::post('M$l36opAdmin/login', 'Auth\AuthController@login');
-Route::get('logout', 'Auth\AuthController@logout');
-//
-//Route::get('/home', 'HomeController@index');
-/********* /Auth routes **********/
+Route::group(['middleware' => 'web'], function () { 
+    
+    // Admin Authentication Routes...
+    Route::get('M$l36opAdmin/login', 'Auth\AuthController@showLoginForm');
+    Route::post('M$l36opAdmin/login', 'Auth\AuthController@login');
+    Route::get('logout', 'Auth\AuthController@logout');
+
+
+    /**categories**/
+    Route::get('M$l36opAdmin/category', 'CategoryController@show');
+    Route::post('M$l36opAdmin/category','CategoryController@show');
+
+    Route::get('M$l36opAdmin/category/destroy/{id}','CategoryController@destroy');
+
+    Route::get('M$l36opAdmin/category/add','CategoryController@create');
+    Route::post('M$l36opAdmin/category/add','CategoryController@create');
+    Route::post('M$l36opAdmin/category/store','CategoryController@store');
+
+    Route::get('M$l36opAdmin/category/edit/{id}','CategoryController@edit');
+    Route::post('M$l36opAdmin/category/update/{id}','CategoryController@update');
+
+    /**subcategories**/
 
 
 
-/**login**/ //JWT
-//Route::get('M$l36opAdmin/login', 'AuthenticateController@showAdminLoginForm');
-//Route::post('M$l36opAdmin/login', 'AuthenticateController@adminLogin');
+    Route::get('M$l36opAdmin/subcategory/destroy/{id}','SubcategoryController@destroy');
+    Route::post('M$l36opAdmin/subcategory/destroy/{id}','SubcategoryController@destroy');
 
-/**categories**/
-Route::get('M$l36opAdmin/category', 'CategoryController@show');
-Route::post('M$l36opAdmin/category','CategoryController@show');
+    Route::get('M$l36opAdmin/subcategory/add/{id}','SubcategoryController@create');
+    Route::post('M$l36opAdmin/subcategory/store/{id}','SubcategoryController@store');
+    Route::post('M$l36opAdmin/subcategory/add/{id}','SubcategoryController@create');
 
-Route::get('M$l36opAdmin/category/destroy/{id}','CategoryController@destroy');
+    Route::get('M$l36opAdmin/subcategory/edit/{id}','SubcategoryController@edit');
+    Route::post('M$l36opAdmin/subcategory/edit/{id}','SubcategoryController@edit');
+    Route::post('M$l36opAdmin/subcategory/edit/{id}','SubcategoryController@edit');
+    Route::post('M$l36opAdmin/subcategory/update/{id}','SubcategoryController@update');
 
-Route::get('M$l36opAdmin/category/add','CategoryController@create');
-Route::post('M$l36opAdmin/category/add','CategoryController@create');
-Route::post('M$l36opAdmin/category/store','CategoryController@store');
+    /**items**/
+    Route::get('M$l36opAdmin/item', 'ItemController@show');
+    Route::post('M$l36opAdmin/item', 'ItemController@show');
 
-Route::get('M$l36opAdmin/category/edit/{id}','CategoryController@edit');
-Route::post('M$l36opAdmin/category/update/{id}','CategoryController@update');
+    Route::post('M$l36opAdmin/item/add','ItemController@create');
+    Route::post('M$l36opAdmin/item/store','ItemController@store');
+    Route::get('M$l36opAdmin/item/add','ItemController@create');
+    Route::post('M$l36opAdmin/item/destroy/{id}','ItemController@destroy');
+    Route::get('M$l36opAdmin/item/destroy/{id}','ItemController@destroy');
+    Route::get('M$l36opAdmin/item/edit/{id}','ItemController@edit');
+    Route::post('M$l36opAdmin/item/update/{id}','ItemController@update');
 
-/**subcategories**/
+    /**customers**/
+    Route::get('M$l36opAdmin/user', 'UserController@show');
+    Route::get('M$l36opAdmin/user/approve/{id}', 'UserController@approve');
+
+    /**orders**/
+    Route::get('M$l36opAdmin/orders', 'OrderController@ListAllOrders');
+    Route::get('M$l36opAdmin/order/details/{id}', 'OrderController@details');
+    Route::post('M$l36opAdmin/order/shipped/{id}', 'OrderController@shipped');
+    Route::get('M$l36opAdmin/order/review', 'OrderController@review');
 
 
-
-Route::get('M$l36opAdmin/subcategory/destroy/{id}','SubcategoryController@destroy');
-Route::post('M$l36opAdmin/subcategory/destroy/{id}','SubcategoryController@destroy');
-
-Route::get('M$l36opAdmin/subcategory/add/{id}','SubcategoryController@create');
-Route::post('M$l36opAdmin/subcategory/store/{id}','SubcategoryController@store');
-Route::post('M$l36opAdmin/subcategory/add/{id}','SubcategoryController@create');
-
-Route::get('M$l36opAdmin/subcategory/edit/{id}','SubcategoryController@edit');
-Route::post('M$l36opAdmin/subcategory/edit/{id}','SubcategoryController@edit');
-Route::post('M$l36opAdmin/subcategory/edit/{id}','SubcategoryController@edit');
-Route::post('M$l36opAdmin/subcategory/update/{id}','SubcategoryController@update');
-
-/**items**/
-Route::get('M$l36opAdmin/item', 'ItemController@show');
-Route::post('M$l36opAdmin/item', 'ItemController@show');
-
-Route::post('M$l36opAdmin/item/add','ItemController@create');
-Route::post('M$l36opAdmin/item/store','ItemController@store');
-Route::get('M$l36opAdmin/item/add','ItemController@create');
-Route::post('M$l36opAdmin/item/destroy/{id}','ItemController@destroy');
-Route::get('M$l36opAdmin/item/destroy/{id}','ItemController@destroy');
-Route::get('M$l36opAdmin/item/edit/{id}','ItemController@edit');
-Route::post('M$l36opAdmin/item/update/{id}','ItemController@update');
-
-/**customers**/
-Route::get('M$l36opAdmin/user', 'UserController@show');
-Route::get('M$l36opAdmin/user/approve/{id}', 'UserController@approve');
-
-/**orders**/
-Route::get('M$l36opAdmin/orders', 'OrderController@ListAllOrders');
-Route::get('M$l36opAdmin/order/details/{id}', 'OrderController@details');
-Route::post('M$l36opAdmin/order/shipped/{id}', 'OrderController@shipped');
-Route::get('M$l36opAdmin/order/review', 'OrderController@review');
-
+});
 
 
 
@@ -125,4 +121,4 @@ Route::get('/order/send', 'OrderController@sendOrder')
 
 //Route::auth();
 
-Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');
