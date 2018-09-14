@@ -27,13 +27,14 @@ Route::get('/', function () {
 
 /*********Auth routes **********/
 
-Route::group(['middleware' => 'web'], function () { 
-    
-    // Admin Authentication Routes...
+// Admin Authentication Routes...
     Route::get('M$l36opAdmin/login', 'Auth\AuthController@showLoginForm');
     Route::post('M$l36opAdmin/login', 'Auth\AuthController@login');
-    Route::get('logout', 'Auth\AuthController@logout');
 
+
+Route::group(['middleware' => ['web','auth']], function () { 
+    
+    Route::get('logout', 'Auth\AuthController@logout');
 
     /**categories**/
     Route::get('M$l36opAdmin/category', 'CategoryController@show');
