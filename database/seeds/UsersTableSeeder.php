@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
         User::firstOrCreate([
         'id' => 1,
         'username' => 'admin',
-        'email' => 'admin@gmail.com',
+        'email' => 'admin@mail.com',
         'password' => \Hash::make('secret'), 
         'status'=>1,
          'user_type_id' => 1,    
