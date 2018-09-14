@@ -25,9 +25,21 @@ Route::get('/', function () {
 /*********Admin Routes**********/
 /*=============================*/
 
-/**login**/
-Route::get('M$l36opAdmin/login', 'AuthenticateController@showAdminLoginForm');
-Route::post('M$l36opAdmin/login', 'AuthenticateController@adminLogin');
+/*********Auth routes **********/
+
+// Admin Authentication Routes...
+Route::get('M$l36opAdmin/login', 'Auth\AuthController@showLoginForm');
+Route::post('M$l36opAdmin/login', 'Auth\AuthController@login');
+Route::get('logout', 'Auth\AuthController@logout');
+//
+//Route::get('/home', 'HomeController@index');
+/********* /Auth routes **********/
+
+
+
+/**login**/ //JWT
+//Route::get('M$l36opAdmin/login', 'AuthenticateController@showAdminLoginForm');
+//Route::post('M$l36opAdmin/login', 'AuthenticateController@adminLogin');
 
 /**categories**/
 Route::get('M$l36opAdmin/category', 'CategoryController@show');
@@ -106,3 +118,11 @@ Route::get('/item/{itemID}/addToCart', 'OrderController@addToCart');
 Route::get('/order/send', 'OrderController@sendOrder')
         ->middleware('jwt.auth')
         ->middleware('status');
+
+
+
+
+
+//Route::auth();
+
+Route::get('/home', 'HomeController@index');

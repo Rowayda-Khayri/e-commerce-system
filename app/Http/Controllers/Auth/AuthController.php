@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 
 //use Illuminate\Http\Request;
@@ -36,15 +37,21 @@ class AuthController extends Controller
     |
     */
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    use AuthenticatesAndRegistersUsers, ThrottlesLogins ;
+//    use AuthenticatesAndRegistersUsers, ThrottlesLogins , AuthenticatesUsers;
 
     /**
      * Where to redirect users after login / registration.
      *
      * @var string
      */
-    protected $redirectTo = '/item';
+    protected $redirectTo = '/M$l36opAdmin/item';
 
+    /**
+     * customize where a user is redirected after logging out of the application
+     * 
+     */
+    protected $redirectAfterLogout = '/M$l36opAdmin/login';
     /**
      * Create a new authentication controller instance.
      *
@@ -84,43 +91,6 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
-//    
-//    
-////    public function login()
-////    {
-////        
-////        
-//////        return "hi login";
-////    }
-////    
-//    
-//    
-////    public function Register(Request $request)
-////    {
-//////        $user = new User;
-//////        $user->username = $request->name;
-//////        $user->email = $request->email;
-//////        $user->password = $request->password;
-//////        $user->user_type_id =2 ;
-//////        $user->status = 0;
-//////        
-//////
-//////        $user->save();
-//////        
-//////        
-//////        
-//////        $items = Item::query()
-//////        ->leftjoin('subcategories as s','s.id', '=', 'items.subcategory_id')
-//////        ->leftjoin('categories as c','c.id', '=', 's.category_id')
-//////        ->get([
-//////            'items.*', 
-//////            's.name as subcategory_name',
-//////            'c.name as category_name'            
-//////        ])->sortByDesc("created_at");
-//////       
-//////        return view('item.show',  compact('items'));
-////    }
-////    
-//    
+
     
 }

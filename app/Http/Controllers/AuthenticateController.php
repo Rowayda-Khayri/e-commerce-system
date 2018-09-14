@@ -52,16 +52,26 @@ class AuthenticateController extends Controller
        $this->jwtauth = $jwtauth;
    }
     
-   public function showAdminLoginForm()
-    {
-//       return view('category.add');
-         return view('auth.adminLogin');
-         return view('auth.adminLogin');
+    public function showAdminLoginForm(){
+        
+        return view('auth.login');
     }
    
-   public function adminLogin(Request $request){
+    public function adminLogin(Request $request){
        
-         $credentials = $request->only('email', 'password');
+        
+        
+    }
+
+    public function showCustomerLoginForm(){
+
+        return json_encode("show customer login form ");
+           
+    }
+   
+    public function customerLogin(Request $request){
+         
+        $credentials = $request->only('email', 'password');
 
         try {
             // verify the credentials and create a token for the user
@@ -74,44 +84,15 @@ class AuthenticateController extends Controller
         }
 
         // if no errors are encountered we can return a JWT
-
-        return view('welcome', compact('token'));
-        }
-
-       public function showCustomerLoginForm()
-    {
-
-            return json_encode("show customer login form ");
-           
-    }
-   
-     public function customerLogin(Request $request){
-         
-           $credentials = $request->only('email', 'password');
-
-            try {
-                // verify the credentials and create a token for the user
-                if (! $token = JWTAuth::attempt($credentials)) {
-                    return response()->json(['error' => 'invalid_credentials'], 401);
-                }
-            } catch (JWTException $e) {
-                // something went wrong
-                return response()->json(['error' => 'could_not_create_token'], 500);
-            }
-
-            // if no errors are encountered we can return a JWT
-            return response()->json(["token" =>$token]);
+        return response()->json(["token" =>$token]);
     }
 
-     public function showCustomerRegistrationForm()
-    {
+    public function showCustomerRegistrationForm(){
         
         return json_encode("show customer registration form ");
     }
    
-    public function customerRegistration(Request $request)
-            
-    {
+    public function customerRegistration(Request $request){
 
         // create the validation rules ------------------------
         $rules = array(                    
@@ -161,4 +142,6 @@ class AuthenticateController extends Controller
         }
 
     }
+    
+    
 }

@@ -1,22 +1,17 @@
-@extends('layout')
+@extends('layouts.app')
 
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">Welcome</div>
 
-@section('pageContent')
-
-<h1> Hello Admin </h1>
-<br><br>
-
-<h3>U R logged in now and this is your JWT:</h3>
-<br><br>
-<h4 style="margin-right: 100px;font-size: 14px;"> "{{$token}}"</h4>
-<br><br>
-<h3> But I won't use it for now in your  routes ..   </h3>
-<h3> Now, u can manage categories, items, orders and customers .. </h3>
-<br><br><br><br>
-<h2>Have Fun  :) </h2>
-
-
-
-    
-   
-@stop
+                <div class="panel-body">
+                    Your Application's Landing Page.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
