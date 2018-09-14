@@ -97,14 +97,11 @@ Route::group(['middleware' => ['web','auth']], function () {
    /*********Customer  API**********/
 /*=============================*/
 
-/**login**/
-Route::get('/login', 'AuthenticateController@showCustomerLoginForm');
+
 //params
 //email , password 
 Route::post('/login', 'AuthenticateController@customerLogin');
 
-/**registration**/
-Route::get('/register', 'AuthenticateController@showCustomerRegistrationForm');
 //params
 //email , password , password_confirmation , phone , username
 Route::post('/register', 'AuthenticateController@customerRegistration');
@@ -117,9 +114,3 @@ Route::get('/order/send', 'OrderController@sendOrder')
         ->middleware('status');
 
 
-
-
-
-//Route::auth();
-
-//Route::get('/home', 'HomeController@index');

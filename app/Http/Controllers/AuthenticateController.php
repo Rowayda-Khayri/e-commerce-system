@@ -52,22 +52,8 @@ class AuthenticateController extends Controller
        $this->jwtauth = $jwtauth;
    }
     
-    public function showAdminLoginForm(){
-        
-        return view('auth.login');
-    }
-   
-    public function adminLogin(Request $request){
-       
-        
-        
-    }
+    
 
-    public function showCustomerLoginForm(){
-
-        return json_encode("show customer login form ");
-           
-    }
    
     public function customerLogin(Request $request){
          
@@ -87,11 +73,7 @@ class AuthenticateController extends Controller
         return response()->json(["token" =>$token]);
     }
 
-    public function showCustomerRegistrationForm(){
-        
-        return json_encode("show customer registration form ");
-    }
-   
+    
     public function customerRegistration(Request $request){
 
         // create the validation rules ------------------------
